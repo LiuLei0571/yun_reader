@@ -1,5 +1,7 @@
 package com.yun.reader.compent.dagger;
 
+import com.yun.reader.compent.sys.YunControlHelper;
+
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -12,10 +14,9 @@ import dagger.Component;
  * @date 2018/4/18 .
  * 邮箱:liulei@getui.com.
  */
-
 @Singleton
-@Component(modules = {AppModule.class})
-public interface AppComponent {
+@Component(modules = {ReaderModule.class})
+public interface ReaderComponent {
     ActivityComponent plus(ActivityModule activityModule);
 
     FragmentComponent plus(FragmentModule fragmentModule);
@@ -23,4 +24,6 @@ public interface AppComponent {
     ServiceComponent plus(ServiceModule serviceModule);
 
     DialogComponent plus(DialogModule dialogModule);
+
+    void plus(YunControlHelper yunControlHelper);
 }

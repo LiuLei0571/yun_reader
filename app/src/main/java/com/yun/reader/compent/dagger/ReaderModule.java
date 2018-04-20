@@ -16,10 +16,10 @@ import dagger.Provides;
  */
 
 @Module
-public class AppModule {
+public class ReaderModule {
     private final Context application;
 
-    public AppModule(Context application) {
+    public ReaderModule(Context application) {
         this.application = application;
     }
     @Provides

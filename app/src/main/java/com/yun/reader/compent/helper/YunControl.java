@@ -8,9 +8,9 @@ import com.yun.reader.compent.base.BaseFragment;
 import com.yun.reader.compent.base.BaseService;
 import com.yun.reader.compent.dagger.ActivityComponent;
 import com.yun.reader.compent.dagger.ActivityModule;
-import com.yun.reader.compent.dagger.AppComponent;
-import com.yun.reader.compent.dagger.AppModule;
-import com.yun.reader.compent.dagger.DaggerAppComponent;
+import com.yun.reader.compent.dagger.DaggerReaderComponent;
+import com.yun.reader.compent.dagger.ReaderComponent;
+import com.yun.reader.compent.dagger.ReaderModule;
 import com.yun.reader.compent.dagger.DialogComponent;
 import com.yun.reader.compent.dagger.DialogModule;
 import com.yun.reader.compent.dagger.FragmentComponent;
@@ -28,26 +28,26 @@ import com.yun.reader.compent.dagger.ServiceModule;
 
 
 public class YunControl {
-    private static AppComponent appComponent;
+    private static ReaderComponent readerComponent;
 
     public static void init(Context context) {
-        AppModule appModule = new AppModule(context);
-        appComponent = DaggerAppComponent.builder().build();
+        ReaderModule readerModule = new ReaderModule(context);
+        readerComponent = DaggerReaderComponent.builder().readerModule(readerModule).build();
     }
 
     public static ActivityComponent createActivityComponent(BaseActivity activity) {
-        return appComponent.plus(new ActivityModule(activity));
+        return readerComponent.plus(new ActivityModule(activity));
     }
 
     public static ServiceComponent createServiceComponent(BaseService baseService) {
-        return appComponent.plus(new ServiceModule(baseService));
+        return readerComponent.plus(new ServiceModule(baseService));
     }
 
     public static FragmentComponent createFragmentComponent(BaseFragment baseFragment) {
-        return appComponent.plus(new FragmentModule(baseFragment));
+        return readerComponent.plus(new FragmentModule(baseFragment));
     }
 
     public static DialogComponent createDialogComponent(BaseDialog baseDialog) {
-        return appComponent.plus(new DialogModule(baseDialog));
+        return readerComponent.plus(new DialogModule(baseDialog));
     }
 }
