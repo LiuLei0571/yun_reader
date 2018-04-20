@@ -2,6 +2,8 @@ package com.yun.reader.compent.base.impl;
 
 import android.view.View;
 
+import com.yun.reader.compent.base.BasePresenter;
+
 /**
  * 用途：.
  *
@@ -18,7 +20,9 @@ public interface ViewImpl {
 
     int getLayoutView();
 
-    void afterLoadView();
+    void afterLoadView(View mView);
 
     void unBindView();
+
+    void saveCurrentPresenter(BasePresenter basePresenter);
 }

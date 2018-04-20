@@ -26,8 +26,4 @@ public class MainActivity extends TempleActivity {
         activityComponent.plus(this);
     }
 
-    @Override
-    public void afterLoadView() {
-        super.afterLoadView();
-    }
 }

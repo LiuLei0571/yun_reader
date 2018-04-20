@@ -1,5 +1,7 @@
 package com.yun.reader.compent.base;
 
+import android.view.View;
+
 /**
  * 用途：.
  *
@@ -16,6 +18,7 @@ public abstract class TempleActivity extends BaseActivity {
     }
 
     @Override
-    public void afterLoadView() {
+    public void afterLoadView(View mView) {
+        
     }
 }
