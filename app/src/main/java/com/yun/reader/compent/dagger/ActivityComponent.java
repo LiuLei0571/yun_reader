@@ -2,6 +2,7 @@ package com.yun.reader.compent.dagger;
 
 import com.yun.reader.product.MainActivity;
 import com.yun.reader.compent.dagger.annotion.ActivityScope;
+import com.yun.reader.product.splash.SplashActivity;
 
 import dagger.Subcomponent;
 
@@ -15,4 +16,6 @@ import dagger.Subcomponent;
 @Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
     void plus(MainActivity activityComponent);
+
+    void plus(SplashActivity splashActivity);
 }

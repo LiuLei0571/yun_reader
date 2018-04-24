@@ -19,6 +19,6 @@ public abstract class TempleActivity extends BaseActivity {
 
     @Override
     public void afterLoadView(View mView) {
-        
+
     }
 }
