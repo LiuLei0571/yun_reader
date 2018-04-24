@@ -1,9 +1,9 @@
 package com.yun.reader.compent.dagger;
 
-import android.app.Activity;
 import android.content.Context;
 
 import com.yun.reader.compent.base.BaseActivity;
+import com.yun.reader.compent.base.impl.ViewImpl;
 import com.yun.reader.compent.dagger.annotion.ActivityScope;
 
 import dagger.Module;
@@ -33,7 +33,13 @@ public class ActivityModule {
 
     @Provides
     @ActivityScope
-    public Activity provideActivity() {
+    public BaseActivity provideBaseActivity() {
+        return mActivity;
+    }
+
+    @Provides
+    @ActivityScope
+    public ViewImpl provideViewImpl() {
         return mActivity;
     }
 }

@@ -1,6 +1,7 @@
 package com.yun.reader.compent.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -38,7 +39,7 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
         bindView(mView);
         afterLoadView(mView);
         doInject(activityComponent);
-        presenterControl.bind(savedInstanceState,getIntent().getExtras());
+        presenterControl.bind(savedInstanceState, getIntent().getExtras());
 
     }
 
@@ -48,6 +49,31 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
     public void saveCurrentPresenter(BasePresenter basePresenter) {
         if (basePresenter != null) {
             presenterControl.savePresenter(basePresenter);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (presenterControl != null) {
+            presenterControl.onResume();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (presenterControl != null) {
+            presenterControl.onDestroy();
+            presenterControl = null;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (presenterControl != null) {
+            presenterControl.onActivityResult(requestCode, resultCode, data);
         }
     }
 

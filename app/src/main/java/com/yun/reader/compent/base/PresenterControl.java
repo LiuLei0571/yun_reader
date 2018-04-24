@@ -1,5 +1,6 @@
 package com.yun.reader.compent.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import java.util.HashSet;
@@ -18,18 +19,42 @@ public class PresenterControl {
 
     public void bind(Bundle savedInstanceState, Bundle extras) {
         if (presenters != null) {
-            for (BasePresenter basePresenter:presenters) {
-                basePresenter.doCreate(savedInstanceState,extras);
+            for (BasePresenter basePresenter : presenters) {
+                basePresenter.doCreate(savedInstanceState, extras);
             }
         }
     }
 
-    public void savePresenter(BasePresenter basePresenter) {
+    protected void savePresenter(BasePresenter basePresenter) {
         if (presenters == null) {
             presenters = new HashSet<>();
         }
         if (basePresenter != null) {
             presenters.add(basePresenter);
+        }
+    }
+
+    protected void onResume() {
+        if (presenters != null) {
+            for (BasePresenter basePresenter : presenters) {
+                basePresenter.onResume();
+            }
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (presenters != null) {
+            for (BasePresenter basePresenter : presenters) {
+                basePresenter.onActivityResult(requestCode,resultCode,data);
+            }
+        }
+    }
+
+    protected void onDestroy() {
+        if (presenters != null) {
+            for (BasePresenter basePresenter : presenters) {
+                basePresenter.onDestroy();
+            }
         }
     }
 }

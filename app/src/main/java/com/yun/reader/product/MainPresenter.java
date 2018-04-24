@@ -1,6 +1,7 @@
 package com.yun.reader.product;
 
 import com.yun.reader.compent.base.BasePresenter;
+import com.yun.reader.compent.base.impl.ViewImpl;
 
 import javax.inject.Inject;
 
@@ -15,10 +16,13 @@ import javax.inject.Inject;
 
 public class MainPresenter extends BasePresenter {
     String str;
+
     @Inject
-    public MainPresenter() {
-        str="hello world";
+    public MainPresenter(ViewImpl iView) {
+        super(iView);
+
     }
+
 
     public String getStr() {
         return str;

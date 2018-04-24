@@ -1,7 +1,5 @@
 package com.yun.reader.compent.base;
 
-import android.widget.ImageView;
-
 import com.yun.reader.compent.base.impl.LoadingImpl;
 import com.yun.reader.compent.base.impl.ViewImpl;
 
@@ -16,12 +14,12 @@ import javax.inject.Inject;
  */
 
 
-public class BaseViewPresenter<T extends ImageView> {
+public class BaseViewPresenter<T extends ViewImpl> {
     protected T view;
     @Inject
     BaseActivity baseActivity;
 
-    public BaseViewPresenter(ViewImpl view) {
+    protected BaseViewPresenter(ViewImpl view) {
         this.view = (T) view;
     }
 
@@ -33,7 +31,7 @@ public class BaseViewPresenter<T extends ImageView> {
         this.view = view;
     }
 
-    public BaseActivity getBaseActivity() {
+    protected BaseActivity getBaseActivity() {
         return baseActivity;
     }
 

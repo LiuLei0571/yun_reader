@@ -15,14 +15,40 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
     }
+
 }
 
+repositories {
+    mavenCentral()
+    google()
+    maven {
+        url 'https://maven.google.com/'
+        name 'Google'
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:26.1.0'
     compile 'com.android.support:support-fragment:26.1.0'
 
+    //dagger2
     compile 'com.google.dagger:dagger:2.14.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //okhttp
+//    testImplementation 'com.squareup.okhttp3:mockwebserver:3.10.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+
+    //glide
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
 }

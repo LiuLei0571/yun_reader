@@ -1,5 +1,6 @@
 package com.yun.reader.compent.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.yun.reader.compent.base.impl.ViewImpl;
@@ -35,9 +36,19 @@ public class BasePresenter<T extends ViewImpl> extends BaseViewPresenter {
         onCreate(savedInstanceState);
     }
 
-    public void initParams(Bundle params) {
+    protected void initParams(Bundle params) {
     }
 
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+    }
+    protected void onResume(){
+
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    }
+
+    protected void onDestroy() {
+
     }
 }
