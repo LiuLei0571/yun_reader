@@ -1,4 +1,4 @@
-package com.yun.reader.compent.helper;
+package com.yun.reader.compent.dagger;
 
 import android.content.Context;
 
@@ -6,17 +6,6 @@ import com.yun.reader.compent.base.BaseActivity;
 import com.yun.reader.compent.base.BaseDialog;
 import com.yun.reader.compent.base.BaseFragment;
 import com.yun.reader.compent.base.BaseService;
-import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.compent.dagger.ActivityModule;
-import com.yun.reader.compent.dagger.DaggerReaderComponent;
-import com.yun.reader.compent.dagger.ReaderComponent;
-import com.yun.reader.compent.dagger.ReaderModule;
-import com.yun.reader.compent.dagger.DialogComponent;
-import com.yun.reader.compent.dagger.DialogModule;
-import com.yun.reader.compent.dagger.FragmentComponent;
-import com.yun.reader.compent.dagger.FragmentModule;
-import com.yun.reader.compent.dagger.ServiceComponent;
-import com.yun.reader.compent.dagger.ServiceModule;
 
 /**
  * 用途：.
@@ -33,6 +22,10 @@ public class YunControl {
     public static void init(Context context) {
         ReaderModule readerModule = new ReaderModule(context);
         readerComponent = DaggerReaderComponent.builder().readerModule(readerModule).build();
+    }
+
+    public static ReaderComponent getReaderComponent() {
+        return readerComponent;
     }
 
     public static ActivityComponent createActivityComponent(BaseActivity activity) {

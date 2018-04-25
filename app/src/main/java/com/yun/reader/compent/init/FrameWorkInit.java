@@ -2,7 +2,7 @@ package com.yun.reader.compent.init;
 
 import android.content.Context;
 
-import com.yun.reader.compent.helper.YunControl;
+import com.yun.reader.compent.dagger.YunControl;
 
 /**
  * 用途：.

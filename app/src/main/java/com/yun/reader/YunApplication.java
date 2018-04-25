@@ -14,7 +14,7 @@ import com.yun.reader.compent.init.AppInit;
  */
 
 
-public class App extends Application {
+public class YunApplication extends Application {
     public static Context appContext;
 
     @Override
@@ -27,4 +27,5 @@ public class App extends Application {
     public static Context getAppContext() {
         return appContext;
     }
+
 }

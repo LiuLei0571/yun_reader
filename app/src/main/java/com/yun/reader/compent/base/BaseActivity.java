@@ -9,7 +9,7 @@ import android.view.View;
 import com.yun.reader.compent.base.impl.LoadingImpl;
 import com.yun.reader.compent.base.impl.ViewImpl;
 import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.compent.helper.YunControl;
+import com.yun.reader.compent.dagger.YunControl;
 
 /**
  * 用途：.

@@ -2,6 +2,10 @@ package com.yun.reader.compent.dagger;
 
 import android.content.Context;
 
+import com.yun.reader.compent.image.DisplayOption;
+import com.yun.reader.compent.image.ImageShowImpl;
+import com.yun.reader.compent.image.glide.GlideImageLoader;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -22,9 +26,19 @@ public class ReaderModule {
     public ReaderModule(Context application) {
         this.application = application;
     }
+
     @Provides
     @Singleton
-    public  Context provideApplication(){
+    public Context provideApplication() {
         return application.getApplicationContext();
+    }
+
+    @Provides
+    @Singleton
+    public ImageShowImpl provideImageLoader() {
+        GlideImageLoader glideImageLoader = new GlideImageLoader(application.getApplicationContext());
+        DisplayOption displayOption = DisplayOption.builder();
+        glideImageLoader.setGlideImage(displayOption);
+        return glideImageLoader;
     }
 }

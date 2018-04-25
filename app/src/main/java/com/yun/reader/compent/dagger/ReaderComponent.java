@@ -26,4 +26,6 @@ public interface ReaderComponent {
     DialogComponent plus(DialogModule dialogModule);
 
     void plus(YunControlHelper yunControlHelper);
+
+    void plus(ReaderControlHelper readerControlHelper);
 }
