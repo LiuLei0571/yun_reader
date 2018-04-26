@@ -1,5 +1,6 @@
 package com.yun.reader.compent.dagger;
 
+import com.yun.reader.compent.http.RetrofitControl;
 import com.yun.reader.compent.image.ImageShowImpl;
 
 import javax.inject.Inject;
@@ -15,7 +16,9 @@ import javax.inject.Inject;
 
 public class ReaderControlHelper {
     @Inject
-   public ImageShowImpl imageShow;
+    public ImageShowImpl imageShow;
+    @Inject
+    public RetrofitControl retrofitControl;
 
     public ReaderControlHelper() {
         YunControl.getReaderComponent().plus(this);
@@ -27,7 +30,7 @@ public class ReaderControlHelper {
         if (readerControlHelper == null) {
             synchronized (ReaderControlHelper.class) {
                 if (readerControlHelper == null) {
-                    readerControlHelper= new ReaderControlHelper();
+                    readerControlHelper = new ReaderControlHelper();
                 }
             }
         }
