@@ -1,5 +1,6 @@
 package com.yun.reader.product;
 
+import com.yun.reader.common.helper.TokenHelper;
 import com.yun.reader.compent.base.BasePresenter;
 import com.yun.reader.compent.base.impl.ViewImpl;
 import com.yun.reader.compent.conver.ResultResponse;
@@ -28,11 +29,14 @@ public class MainPresenter extends BasePresenter<MainActivity> {
     }
 
     public void getData() {
-        mainManager.execute(new CommonObserver<LoginResponse>() {
-
+        mainManager.loginAuto(new CommonObserver<LoginResponse>() {
             @Override
             public void doSuccess(ResultResponse<LoginResponse> result) {
-
+                if (result.getData() != null) {
+                    LoginResponse loginResponse = result.getData();
+                    TokenHelper.setUserToken(loginResponse.getToken());
+                    getView().showLoginName(loginResponse.getUserName());
+                }
             }
 
             @Override

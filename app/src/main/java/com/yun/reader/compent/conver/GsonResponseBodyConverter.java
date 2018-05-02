@@ -22,16 +22,16 @@ public class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     public T convert(ResponseBody responseBody) throws IOException {
         T downloadFileResponse = null;
         try {
-            ResultResponse resultResponse = gson.fromJson(responseBody.toString(), ResultResponse.class);
+            String responseBodyString = responseBody.string();
+            ResultResponse resultResponse = gson.fromJson(responseBodyString, ResultResponse.class);
             if (resultResponse == null) {
-                throw RestError.JSONCoverError(responseBody.toString());
+                throw RestError.JSONCoverError(responseBody.string());
             } else if (resultResponse.getCode() == 0) {
-                downloadFileResponse = this.adapter.fromJson(responseBody.toString());
+                downloadFileResponse = this.adapter.fromJson(responseBodyString);
+                responseBody.close();
             }
         } catch (Throwable th) {
             throw RestError.ContentTypeError();
-        } finally {
-            responseBody.close();
         }
         return downloadFileResponse;
     }

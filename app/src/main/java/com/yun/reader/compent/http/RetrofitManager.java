@@ -20,6 +20,6 @@ public class RetrofitManager {
     }
 
     public RetrofitApis provideRetrofit() {
-        return retrofit.create(RetrofitApis.class);
+       return retrofit.create(RetrofitApis.class);
     }
 }

@@ -1,6 +1,6 @@
 package com.yun.reader.compent.http;
 
-import com.yun.reader.common.http.response.BaseResponse;
+import com.yun.reader.compent.conver.ResultResponse;
 import com.yun.reader.product.user.LoginResponse;
 
 import io.reactivex.Observable;
@@ -18,7 +18,7 @@ import retrofit2.http.POST;
 
 public interface RetrofitApis {
     @POST(value = "user/account")
-    Observable<BaseResponse<LoginResponse>> account();
+    Observable<ResultResponse<LoginResponse>> account();
 
 //    @POST(value = "app/conf")
 //    Observable<BaseResponse<AppConfResponse>> appConf(@Body Object obj);
@@ -108,7 +108,7 @@ public interface RetrofitApis {
 //    Observable<BaseResponse<String>> imageCode(@Body Object obj);
 //
     @POST(value = "user/login")
-    Observable<BaseResponse<LoginResponse>> login(@Body Object obj);
+    Observable<ResultResponse<LoginResponse>> login(@Body Object obj);
 
 //    @POST(value = "book/orderInfo")
 //    Observable<BaseResponse<OrderInfoResponse>> orderInfo(@Body Object obj);

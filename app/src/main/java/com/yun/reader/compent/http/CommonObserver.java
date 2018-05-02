@@ -21,32 +21,27 @@ public abstract class CommonObserver<T> implements Observer<ResultResponse<T>>, 
 
     @Override
     public void doSubscribe(Disposable d) {
-        Log.d(TAG, "doSubscribe: ");
     }
 
     @Override
     public void doFinish() {
-        Log.d(TAG, "doFinish: ");
     }
 
     @Override
     public void onSubscribe(Disposable d) {
         doSubscribe(d);
-        Log.d(TAG, "onSubscribe: ");
     }
 
     @Override
     public void onNext(ResultResponse<T> tResultResponse) {
-        Log.d(TAG, "onNext: ");
+        doSuccess(tResultResponse);
     }
 
     @Override
     public void onError(Throwable e) {
-        Log.d(TAG, "onError: ");
+        Log.d(TAG, "onError: "+e.toString());
     }
-
     @Override
     public void onComplete() {
-        Log.d(TAG, "onComplete: ");
     }
 }

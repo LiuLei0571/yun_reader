@@ -1,10 +1,15 @@
 package com.yun.reader.compent.base;
 
-import com.yun.reader.compent.helper.HttpHelper;
-import com.yun.reader.compent.http.CommonObserver;
+import com.yun.reader.YunApplication;
+import com.yun.reader.compent.dagger.ReaderControlHelper;
+import com.yun.reader.compent.http.CommonConsumer;
+import com.yun.reader.compent.http.RetrofitApis;
 
-import java.util.HashMap;
-import java.util.Map;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * 用途：.
@@ -16,10 +21,17 @@ import java.util.Map;
 
 
 public class BaseManager {
-    public void execute(CommonObserver commonObserver) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("via", "auto");
-        HttpHelper.execute(commonObserver, params);
+    protected static RetrofitApis retrofitApis;
+
+    static {
+        retrofitApis = ReaderControlHelper.getInstance().retrofitManager.provideRetrofit();
     }
 
+    protected <T> void handlerObserver(Observable<? extends T>  observable, Observer commonObserver) {
+        observable.subscribeOn(Schedulers.io())
+                .doOnSubscribe(new CommonConsumer<Disposable>(YunApplication.appContext))
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(commonObserver);
+    }
 }

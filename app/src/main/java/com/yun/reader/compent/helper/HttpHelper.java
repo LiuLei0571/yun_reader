@@ -28,7 +28,6 @@ public class HttpHelper {
         retrofitManager = ReaderControlHelper.getInstance().retrofitManager;
     }
 
-
     public static void execute(CommonObserver commonObserver, Map<String,Object> parmas) {
         retrofitManager.provideRetrofit().login(parmas)
                 .subscribeOn(Schedulers.io())

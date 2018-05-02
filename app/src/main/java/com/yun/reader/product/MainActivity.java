@@ -42,4 +42,8 @@ public class MainActivity extends TempleActivity {
             }
         });
     }
+
+    public void showLoginName(String userName) {
+        tvTest.setText(userName);
+    }
 }
