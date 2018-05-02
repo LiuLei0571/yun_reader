@@ -1,5 +1,6 @@
 package com.yun.reader.compent.dagger;
 
+import com.yun.reader.common.parse.ParseImpl;
 import com.yun.reader.compent.http.RetrofitManager;
 import com.yun.reader.compent.image.ImageShowImpl;
 
@@ -19,6 +20,8 @@ public class ReaderControlHelper {
     public ImageShowImpl imageShow;
     @Inject
     public RetrofitManager retrofitManager;
+    @Inject
+    public ParseImpl parse;
 
     private static ReaderControlHelper readerControlHelper;
 

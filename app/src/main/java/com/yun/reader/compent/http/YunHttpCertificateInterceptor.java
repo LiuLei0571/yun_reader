@@ -1,5 +1,7 @@
 package com.yun.reader.compent.http;
 
+import com.yun.reader.common.helper.TokenHelper;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -23,7 +25,7 @@ public class YunHttpCertificateInterceptor implements Interceptor {
         Request request = chain.request();
         Request.Builder builder = request.newBuilder().method(request.method(), request.body());
 
-        builder.header("Authorization", "");
+        builder.header("Authorization", TokenHelper.getUserToken());
         return chain.proceed(builder.build());
     }
 }

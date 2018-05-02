@@ -5,8 +5,9 @@ import android.content.Context;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
-import com.google.gson.GsonBuilder;
 import com.yun.reader.common.config.ApiConfig;
+import com.yun.reader.common.parse.GsonParse;
+import com.yun.reader.common.parse.ParseImpl;
 import com.yun.reader.compent.conver.SpecialGsonConverterFactory;
 import com.yun.reader.compent.http.RetrofitManager;
 import com.yun.reader.compent.http.YunHttpInterceptor;
@@ -83,12 +84,18 @@ public class ReaderModule {
 
     @Provides
     @Singleton
+    public ParseImpl provideJson() {
+        return new GsonParse();
+    }
+
+    @Provides
+    @Singleton
     public Retrofit provideRetrofit(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiConfig.PROTOCOL_HTTPS + ApiConfig.BASE_HOST)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(SpecialGsonConverterFactory.create(new GsonBuilder().serializeNulls().create()))
+                .addConverterFactory(SpecialGsonConverterFactory.create(GsonParse.initGson()))
                 .build();
         return retrofit;
     }

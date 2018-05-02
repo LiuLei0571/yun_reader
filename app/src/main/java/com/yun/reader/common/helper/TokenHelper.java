@@ -1,7 +1,5 @@
 package com.yun.reader.common.helper;
 
-import com.yun.reader.common.storage.Sps;
-
 /**
  * 用途：.
  *
@@ -13,7 +11,10 @@ import com.yun.reader.common.storage.Sps;
 
 public class TokenHelper {
     public static String getUserToken() {
-        Sps sps = new Sps();
-        return sps.getString("login_token");
+        return SpsHelper.getString("login_token");
+    }
+
+    public static void setUserToken(String value) {
+        SpsHelper.putString("login_token", value);
     }
 }
