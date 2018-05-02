@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.yun.reader.YunApplication;
+import com.yun.reader.common.helper.JsonHelper;
+
+import java.lang.reflect.Type;
 
 /**
  * 用途：.
@@ -47,6 +50,16 @@ public class Sps {
             }
             editor.apply();
         }
+    }
+
+    public void putBean(String key, Object object) {
+        sharedPreferences.edit().putString(key, JsonHelper.toJsonString(object));
+
+    }
+
+    public <T> T getBean(String key, Type type) {
+        String json = sharedPreferences.getString(key, null);
+        return JsonHelper.fromJson(json, type);
     }
 
     public String getString(String key) {

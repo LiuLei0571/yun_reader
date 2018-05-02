@@ -28,7 +28,7 @@ public class MainPresenter extends BasePresenter<MainActivity> {
     }
 
     public void getData() {
-        mainManager.execute(new CommonObserver<LoginResponse>(){
+        mainManager.execute(new CommonObserver<LoginResponse>() {
 
             @Override
             public void doSuccess(ResultResponse<LoginResponse> result) {
