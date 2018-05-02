@@ -16,12 +16,13 @@ import com.yun.reader.compent.base.BaseService;
  */
 
 
-public class YunControl {
+public class ReaderControl {
     private static ReaderComponent readerComponent;
 
     public static void init(Context context) {
         ReaderModule readerModule = new ReaderModule(context);
-        readerComponent = DaggerReaderComponent.builder().readerModule(readerModule).build();
+        ManagerModule managerModule=new ManagerModule();
+        readerComponent = DaggerReaderComponent.builder().readerModule(readerModule).managerModule(managerModule).build();
     }
 
     public static ReaderComponent getReaderComponent() {

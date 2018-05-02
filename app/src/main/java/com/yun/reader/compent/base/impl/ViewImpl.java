@@ -25,4 +25,5 @@ public interface ViewImpl {
     void unBindView();
 
     void saveCurrentPresenter(BasePresenter basePresenter);
+
 }

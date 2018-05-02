@@ -2,6 +2,9 @@ package com.yun.reader.product;
 
 import com.yun.reader.compent.base.BasePresenter;
 import com.yun.reader.compent.base.impl.ViewImpl;
+import com.yun.reader.compent.conver.ResultResponse;
+import com.yun.reader.compent.http.CommonObserver;
+import com.yun.reader.product.user.LoginResponse;
 
 import javax.inject.Inject;
 
@@ -14,17 +17,28 @@ import javax.inject.Inject;
  */
 
 
-public class MainPresenter extends BasePresenter {
+public class MainPresenter extends BasePresenter<MainActivity> {
     String str;
+    @Inject
+    MainManager mainManager;
 
     @Inject
     public MainPresenter(ViewImpl iView) {
         super(iView);
-
     }
 
+    public void getData() {
+        mainManager.execute(new CommonObserver<LoginResponse>(){
 
-    public String getStr() {
-        return str;
+            @Override
+            public void doSuccess(ResultResponse<LoginResponse> result) {
+
+            }
+
+            @Override
+            public void doFail(String msg) {
+
+            }
+        });
     }
 }

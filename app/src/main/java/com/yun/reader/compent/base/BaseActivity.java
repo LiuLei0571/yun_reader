@@ -9,7 +9,9 @@ import android.view.View;
 import com.yun.reader.compent.base.impl.LoadingImpl;
 import com.yun.reader.compent.base.impl.ViewImpl;
 import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.compent.dagger.YunControl;
+import com.yun.reader.compent.dagger.ReaderControl;
+
+import butterknife.ButterKnife;
 
 /**
  * 用途：.
@@ -28,19 +30,24 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
         super.onCreate(savedInstanceState);
         setContentView(getLayoutView());
         if (activityComponent == null) {
-            activityComponent = YunControl.createActivityComponent(this);
+            activityComponent = ReaderControl.createActivityComponent(this);
         }
         if (presenterControl == null) {
             presenterControl = new PresenterControl();
         }
+        doInject(activityComponent);
         View mView = getLayoutInflater().inflate(getLayoutView(), null, false);
         beforeLoadView();
         setContentView(mView);
         bindView(mView);
         afterLoadView(mView);
-        doInject(activityComponent);
         presenterControl.bind(savedInstanceState, getIntent().getExtras());
 
+    }
+
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
     }
 
     public abstract void doInject(ActivityComponent activityComponent);
@@ -79,12 +86,12 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
 
     @Override
     public void bindView(View mView) {
+        ButterKnife.bind(this, mView);
 
     }
 
     @Override
     public void unBindView() {
-
     }
 
     @Override

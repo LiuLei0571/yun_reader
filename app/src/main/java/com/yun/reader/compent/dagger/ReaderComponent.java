@@ -1,7 +1,5 @@
 package com.yun.reader.compent.dagger;
 
-import com.yun.reader.compent.sys.YunControlHelper;
-
 import javax.inject.Singleton;
 
 import dagger.Component;
@@ -25,7 +23,6 @@ public interface ReaderComponent {
 
     DialogComponent plus(DialogModule dialogModule);
 
-    void plus(YunControlHelper yunControlHelper);
 
     void plus(ReaderControlHelper readerControlHelper);
 }

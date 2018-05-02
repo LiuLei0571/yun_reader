@@ -1,6 +1,6 @@
 package com.yun.reader.compent.dagger;
 
-import com.yun.reader.compent.http.RetrofitControl;
+import com.yun.reader.compent.http.RetrofitManager;
 import com.yun.reader.compent.image.ImageShowImpl;
 
 import javax.inject.Inject;
@@ -18,11 +18,7 @@ public class ReaderControlHelper {
     @Inject
     public ImageShowImpl imageShow;
     @Inject
-    public RetrofitControl retrofitControl;
-
-    public ReaderControlHelper() {
-        YunControl.getReaderComponent().plus(this);
-    }
+    public RetrofitManager retrofitManager;
 
     private static ReaderControlHelper readerControlHelper;
 
@@ -35,5 +31,9 @@ public class ReaderControlHelper {
             }
         }
         return readerControlHelper;
+    }
+
+    public ReaderControlHelper() {
+        ReaderControl.getReaderComponent().plus(this);
     }
 }

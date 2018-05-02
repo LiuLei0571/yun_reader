@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.yun.reader.common.hellper.ThreadHelper;
+import com.yun.reader.common.helper.ThreadHelper;
 import com.yun.reader.common.util.StringUtils;
 import com.yun.reader.compent.image.DisplayOption;
 import com.yun.reader.compent.image.ImageLoadImpl;

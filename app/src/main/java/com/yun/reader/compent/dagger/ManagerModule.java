@@ -1,6 +1,11 @@
 package com.yun.reader.compent.dagger;
 
+import com.yun.reader.product.MainManager;
+
+import javax.inject.Singleton;
+
 import dagger.Module;
+import dagger.Provides;
 
 /**
  * 用途：.
@@ -12,4 +17,9 @@ import dagger.Module;
 
 @Module
 public class ManagerModule {
+    @Provides
+    @Singleton
+    public MainManager provideMainManager() {
+        return new MainManager();
+    }
 }

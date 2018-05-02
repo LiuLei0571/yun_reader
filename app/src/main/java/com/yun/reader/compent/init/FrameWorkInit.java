@@ -2,7 +2,7 @@ package com.yun.reader.compent.init;
 
 import android.content.Context;
 
-import com.yun.reader.compent.dagger.YunControl;
+import com.yun.reader.compent.dagger.ReaderControl;
 
 /**
  * 用途：.
@@ -16,7 +16,7 @@ import com.yun.reader.compent.dagger.YunControl;
 public class FrameWorkInit implements AppInitImpl {
     @Override
     public void init(Context context) {
-        YunControl.init(context);
+        ReaderControl.init(context);
     }
 
 }

@@ -13,12 +13,13 @@ import com.yun.reader.compent.base.impl.ViewImpl;
  */
 
 
-public class BasePresenter<T extends ViewImpl> extends BaseViewPresenter {
+public class BasePresenter<T extends ViewImpl> extends BaseViewPresenter<T> {
 
     public BasePresenter(ViewImpl iView) {
         super(iView);
         iView.saveCurrentPresenter(this);
     }
+
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -30,9 +31,11 @@ public class BasePresenter<T extends ViewImpl> extends BaseViewPresenter {
     }
 
     public void doCreate(Bundle savedInstanceState, Bundle params) {
-        if (params != null) {
-            initParams(params);
+        if (params == null) {
+            params = new Bundle();
         }
+        initParams(params);
+
         onCreate(savedInstanceState);
     }
 
@@ -41,7 +44,8 @@ public class BasePresenter<T extends ViewImpl> extends BaseViewPresenter {
 
     protected void onCreate(Bundle savedInstanceState) {
     }
-    protected void onResume(){
+
+    protected void onResume() {
 
     }
 

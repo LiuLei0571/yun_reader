@@ -2,10 +2,14 @@ package com.yun.reader.compent.dagger;
 
 import android.content.Context;
 
+import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
-import com.yun.reader.compent.cookie.PersistentCookieJar;
-import com.yun.reader.compent.http.RetrofitControl;
+import com.google.gson.GsonBuilder;
+import com.yun.reader.common.config.ApiConfig;
+import com.yun.reader.compent.conver.SpecialGsonConverterFactory;
+import com.yun.reader.compent.http.RetrofitManager;
+import com.yun.reader.compent.http.YunHttpInterceptor;
 import com.yun.reader.compent.image.DisplayOption;
 import com.yun.reader.compent.image.ImageShowImpl;
 import com.yun.reader.compent.image.glide.GlideImageLoader;
@@ -16,7 +20,9 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.CookieJar;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 /**
  * 用途：.
@@ -51,14 +57,14 @@ public class ReaderModule {
 
     @Provides
     @Singleton
-    public RetrofitControl provideRetrofit() {
-        RetrofitControl retrofitControl = RetrofitControl.getInstance();
-        return retrofitControl;
+    public RetrofitManager provideRetrofitManager(Retrofit retrofit) {
+        RetrofitManager retrofitManager = new RetrofitManager(retrofit);
+        return retrofitManager;
     }
 
     @Provides
     @Singleton
-    public CookieJar provideCookJar() {
+    public PersistentCookieJar provideCookJar() {
         PersistentCookieJar persistentCookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(application));
         return persistentCookieJar;
     }
@@ -70,7 +76,20 @@ public class ReaderModule {
                 .connectTimeout(15000, TimeUnit.MILLISECONDS)
                 .readTimeout(60000, TimeUnit.MILLISECONDS)
                 .writeTimeout(60000, TimeUnit.MILLISECONDS)
+                .addInterceptor(new YunHttpInterceptor())
                 .cookieJar(cookieJar);
         return okHttpClientBuilder.build();
+    }
+
+    @Provides
+    @Singleton
+    public Retrofit provideRetrofit(OkHttpClient okHttpClient) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ApiConfig.PROTOCOL_HTTPS + ApiConfig.BASE_HOST)
+                .client(okHttpClient)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(SpecialGsonConverterFactory.create(new GsonBuilder().serializeNulls().create()))
+                .build();
+        return retrofit;
     }
 }
