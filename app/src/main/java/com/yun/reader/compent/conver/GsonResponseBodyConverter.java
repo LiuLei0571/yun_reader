@@ -2,6 +2,7 @@ package com.yun.reader.compent.conver;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
+import com.yun.reader.common.exception.RestError;
 
 import java.io.IOException;
 
@@ -19,14 +20,19 @@ public class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
 
     @Override
     public T convert(ResponseBody responseBody) throws IOException {
+        T downloadFileResponse = null;
         try {
-            T downloadFileResponse = null;
-            String uuid;
-
-            return downloadFileResponse ;
+            ResultResponse resultResponse = gson.fromJson(responseBody.toString(), ResultResponse.class);
+            if (resultResponse == null) {
+                throw RestError.JSONCoverError(responseBody.toString());
+            } else if (resultResponse.getCode() == 0) {
+                downloadFileResponse = this.adapter.fromJson(responseBody.toString());
+            }
         } catch (Throwable th) {
+            throw RestError.ContentTypeError();
+        } finally {
             responseBody.close();
         }
-        return null;
+        return downloadFileResponse;
     }
 }

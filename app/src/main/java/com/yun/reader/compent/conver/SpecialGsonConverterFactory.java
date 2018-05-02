@@ -29,14 +29,6 @@ public class SpecialGsonConverterFactory extends Converter.Factory {
         this.gson = gson;
     }
 
-//    public GsonConverterFactory<?, ?> responseBodyConverter(Type type, Annotation[] annotationArr, C3875m c3875m) {
-//        return new GsonResponseBodyConverter(this.gson, this.gson.getAdapter(TypeToken.get(type)));
-//    }
-//
-//    public GsonConverterFactory<?, RequestBody> requestBodyConverter(Type type, Annotation[] annotationArr, Annotation[] annotationArr2, C3875m c3875m) {
-//        return new GsonRequestBodyConverter(this.gson, this.gson.getAdapter(TypeToken.get(type)));
-//    }
-
     @Override
     public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
         return new GsonRequestBodyConverter(this.gson, this.gson.getAdapter(TypeToken.get(type)));
