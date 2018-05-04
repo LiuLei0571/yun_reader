@@ -10,7 +10,7 @@ import com.yun.reader.common.parse.GsonParse;
 import com.yun.reader.common.parse.ParseImpl;
 import com.yun.reader.compent.conver.SpecialGsonConverterFactory;
 import com.yun.reader.compent.http.RetrofitManager;
-import com.yun.reader.compent.http.YunHttpInterceptor;
+import com.yun.reader.compent.http.YunHttpHeaderInterceptor;
 import com.yun.reader.compent.image.DisplayOption;
 import com.yun.reader.compent.image.ImageShowImpl;
 import com.yun.reader.compent.image.glide.GlideImageLoader;
@@ -77,7 +77,7 @@ public class ReaderModule {
                 .connectTimeout(15000, TimeUnit.MILLISECONDS)
                 .readTimeout(60000, TimeUnit.MILLISECONDS)
                 .writeTimeout(60000, TimeUnit.MILLISECONDS)
-                .addInterceptor(new YunHttpInterceptor())
+                .addInterceptor(new YunHttpHeaderInterceptor())
                 .cookieJar(cookieJar);
         return okHttpClientBuilder.build();
     }

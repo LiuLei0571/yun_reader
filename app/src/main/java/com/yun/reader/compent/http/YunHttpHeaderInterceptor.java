@@ -20,7 +20,7 @@ import okhttp3.Response;
  */
 
 
-public class YunHttpInterceptor implements Interceptor {
+public class YunHttpHeaderInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request request = chain.request();

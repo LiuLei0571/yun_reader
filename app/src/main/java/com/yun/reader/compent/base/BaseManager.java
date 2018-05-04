@@ -27,7 +27,7 @@ public class BaseManager {
         retrofitApis = ReaderControlHelper.getInstance().retrofitManager.provideRetrofit();
     }
 
-    protected <T> void handlerObserver(Observable<? extends T>  observable, Observer commonObserver) {
+    protected <T> void handlerObserver(Observable<? extends T> observable, Observer commonObserver) {
         observable.subscribeOn(Schedulers.io())
                 .doOnSubscribe(new CommonConsumer<Disposable>(YunApplication.appContext))
                 .subscribeOn(AndroidSchedulers.mainThread())

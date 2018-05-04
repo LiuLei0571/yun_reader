@@ -24,7 +24,6 @@ public class YunHttpCertificateInterceptor implements Interceptor {
 
         Request request = chain.request();
         Request.Builder builder = request.newBuilder().method(request.method(), request.body());
-
         builder.header("Authorization", TokenHelper.getUserToken());
         return chain.proceed(builder.build());
     }

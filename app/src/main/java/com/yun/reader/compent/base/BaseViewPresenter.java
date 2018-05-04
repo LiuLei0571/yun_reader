@@ -54,5 +54,9 @@ public class BaseViewPresenter<T extends ViewImpl> {
     public void finish() {
         baseActivity.finish();
     }
+
+    public void submitTask(){
+
+    }
 }
 
