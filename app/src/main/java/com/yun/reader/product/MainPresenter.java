@@ -1,5 +1,6 @@
 package com.yun.reader.product;
 
+import com.yun.reader.common.helper.SpHelper;
 import com.yun.reader.common.helper.TokenHelper;
 import com.yun.reader.compent.base.BasePresenter;
 import com.yun.reader.compent.base.impl.ViewImpl;
@@ -35,6 +36,7 @@ public class MainPresenter extends BasePresenter<MainActivity> {
                 if (result.getData() != null) {
                     LoginResponse loginResponse = result.getData();
                     TokenHelper.setUserToken(loginResponse.getToken());
+                    SpHelper.putBean("user_auto", loginResponse);
                     getView().showLoginName(loginResponse.getUserName());
                 }
             }

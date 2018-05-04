@@ -11,10 +11,10 @@ package com.yun.reader.common.helper;
 
 public class TokenHelper {
     public static String getUserToken() {
-        return SpsHelper.getString("login_token");
+        return SpHelper.getString("login_token");
     }
 
     public static void setUserToken(String value) {
-        SpsHelper.putString("login_token", value);
+        SpHelper.putString("login_token", value);
     }
 }
