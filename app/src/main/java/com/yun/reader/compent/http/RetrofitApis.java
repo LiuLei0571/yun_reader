@@ -1,7 +1,11 @@
 package com.yun.reader.compent.http;
 
+import com.yun.reader.common.http.response.BaseResponse;
 import com.yun.reader.compent.conver.ResultResponse;
+import com.yun.reader.product.book.manager.PromotionBookBean;
 import com.yun.reader.product.user.LoginResponse;
+
+import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.Body;
@@ -38,8 +42,8 @@ public interface RetrofitApis {
 //    @POST(value = "book/info")
 //    Observable<BaseResponse<List<BookResponse>>> bookInfoArray(@Body Object obj);
 //
-//    @POST(value = "/book/promotionBooks")
-//    Observable<BaseResponse<List<BookResponse>>> bookPromotionBooks();
+    @POST(value = "/book/promotionBooks")
+    Observable<BaseResponse<List<PromotionBookBean>>> bookPromotionBooks();
 //
 //    @POST(value = "/book/searchSuggestions")
 //    Observable<BaseResponse<List<SearchSuggest>>> bookSearchSuggest(@Body Object obj);

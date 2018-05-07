@@ -1,7 +1,5 @@
 package com.yun.reader.compent.http;
 
-import android.util.Log;
-
 import com.yun.reader.compent.conver.ResultResponse;
 
 import io.reactivex.Observer;
@@ -39,8 +37,7 @@ public abstract class CommonObserver<T> implements Observer<ResultResponse<T>>, 
 
     @Override
     public void onError(Throwable e) {
-        Log.d(TAG, "onError: "+e.toString());
-    }
+     }
     @Override
     public void onComplete() {
     }

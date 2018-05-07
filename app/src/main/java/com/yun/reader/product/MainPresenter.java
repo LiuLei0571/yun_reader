@@ -20,7 +20,6 @@ import javax.inject.Inject;
 
 
 public class MainPresenter extends BasePresenter<MainActivity> {
-    String str;
     @Inject
     MainManager mainManager;
 
@@ -40,7 +39,6 @@ public class MainPresenter extends BasePresenter<MainActivity> {
                     getView().showLoginName(loginResponse.getUserName());
                 }
             }
-
             @Override
             public void doFail(String msg) {
 
