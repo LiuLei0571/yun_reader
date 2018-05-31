@@ -9,5 +9,7 @@ package com.yun.reader.common.config;
  */
 
 
-public class CacheKeys {
+public interface CacheKeys {
+    String YUN_USER_INFO = "yun_user_info";
+    String YUN_RUNTIME_INFO = "yun_runtime_info";
 }

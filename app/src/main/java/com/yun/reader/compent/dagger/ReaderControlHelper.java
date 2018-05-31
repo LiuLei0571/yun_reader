@@ -3,6 +3,7 @@ package com.yun.reader.compent.dagger;
 import com.yun.reader.common.parse.ParseImpl;
 import com.yun.reader.compent.http.RetrofitManager;
 import com.yun.reader.compent.image.ImageShowImpl;
+import com.yun.reader.product.user.module.UserManager;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,8 @@ public class ReaderControlHelper {
     public ImageShowImpl imageShow;
     @Inject
     public RetrofitManager retrofitManager;
+    @Inject
+    public  UserManager userManager;
     @Inject
     public ParseImpl parse;
 

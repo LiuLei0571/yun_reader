@@ -1,4 +1,4 @@
-package com.aixuedai.common.helper;
+package com.yun.reader.common.cache;
 
 import java.lang.ref.SoftReference;
 import java.util.HashMap;

@@ -9,5 +9,15 @@ package com.yun.reader.common.config;
  */
 
 
-public class SpKeys {
+public interface SpKeys {
+    /**
+     * 用户信息
+     */
+    String USER_INFO = "user";
+
+    /**
+     * 用户信息(我的信息)
+     */
+    String USER_CENTER_INFO = "user_center";
+
 }

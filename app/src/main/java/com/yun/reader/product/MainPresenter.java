@@ -6,7 +6,7 @@ import com.yun.reader.compent.base.BasePresenter;
 import com.yun.reader.compent.base.impl.ViewImpl;
 import com.yun.reader.compent.conver.ResultResponse;
 import com.yun.reader.compent.http.CommonObserver;
-import com.yun.reader.product.user.LoginResponse;
+import com.yun.reader.product.user.UserInfo;
 
 import javax.inject.Inject;
 
@@ -29,14 +29,14 @@ public class MainPresenter extends BasePresenter<MainActivity> {
     }
 
     public void getData() {
-        mainManager.loginAuto(new CommonObserver<LoginResponse>() {
+        mainManager.loginAuto(new CommonObserver<UserInfo>() {
             @Override
-            public void doSuccess(ResultResponse<LoginResponse> result) {
+            public void doSuccess(ResultResponse<UserInfo> result) {
                 if (result.getData() != null) {
-                    LoginResponse loginResponse = result.getData();
-                    TokenHelper.setUserToken(loginResponse.getToken());
-                    SpHelper.putBean("user_auto", loginResponse);
-                    getView().showLoginName(loginResponse.getUserName());
+                    UserInfo userInfo = result.getData();
+                    TokenHelper.setUserToken(userInfo.getToken());
+                    SpHelper.putBean("user_auto", userInfo);
+                    getView().showLoginName(userInfo.getUserName());
                 }
             }
             @Override

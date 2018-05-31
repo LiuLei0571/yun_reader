@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <attr name="PressedViewStyle" format="reference" />
+
+    <attr name="TopBarStyle" format="reference" />
+
+    <attr name="SplashTheme" format="reference"/>
+
+    <attr name="colorPrimary" format="color" />
+
+    <attr name="colorPrimaryDark" format="color" />
+
+    <attr name="colorAccent" format="color" />
+</resources>

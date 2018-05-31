@@ -1,6 +1,7 @@
 package com.yun.reader.compent.dagger;
 
 import com.yun.reader.product.MainManager;
+import com.yun.reader.product.user.module.UserManager;
 
 import javax.inject.Singleton;
 
@@ -21,5 +22,11 @@ public class ManagerModule {
     @Singleton
     public MainManager provideMainManager() {
         return new MainManager();
+    }
+
+    @Provides
+    @Singleton
+    public UserManager provideUserManager() {
+        return new UserManager();
     }
 }

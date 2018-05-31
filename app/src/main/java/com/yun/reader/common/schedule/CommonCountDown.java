@@ -1,5 +1,7 @@
 package com.yun.reader.common.schedule;
 
+import android.os.CountDownTimer;
+
 /**
  * 用途：.
  *
@@ -9,5 +11,19 @@ package com.yun.reader.common.schedule;
  */
 
 
-public class CommonCountDown {
+public class CommonCountDown extends CountDownTimer{
+
+    public CommonCountDown(long millisInFuture, long countDownInterval) {
+        super(millisInFuture, countDownInterval);
+    }
+
+    @Override
+    public void onTick(long millisUntilFinished) {
+
+    }
+
+    @Override
+    public void onFinish() {
+
+    }
 }

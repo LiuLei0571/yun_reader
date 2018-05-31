@@ -1,5 +1,9 @@
 package com.yun.reader.product.splash;
 
+import com.yun.reader.R;
+import com.yun.reader.compent.base.TempleActivity;
+import com.yun.reader.compent.dagger.ActivityComponent;
+
 /**
  * 用途：.
  *
@@ -9,5 +13,14 @@ package com.yun.reader.product.splash;
  */
 
 
-public class SelectGenderActivity {
+public class SelectGenderActivity extends TempleActivity {
+    @Override
+    public int getLayoutView() {
+        return R.layout.activity_select_gender;
+    }
+
+    @Override
+    public void doInject(ActivityComponent activityComponent) {
+        activityComponent.plus(this);
+    }
 }

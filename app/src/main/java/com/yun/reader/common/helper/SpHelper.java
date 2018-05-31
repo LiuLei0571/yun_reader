@@ -28,7 +28,7 @@ public class SpHelper {
         sps.putBean(key, object);
     }
 
-    public static Object getBean(String key, Type type) {
+    public static <T> T getBean(String key, Type type) {
         return sps.getBean(key, type);
     }
 }

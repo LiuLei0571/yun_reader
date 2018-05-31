@@ -9,5 +9,8 @@ package com.yun.reader.common.schedule;
  */
 
 
-public class CountdownListener {
+public interface CountdownListener {
+    void onFinsh();
+
+    void onError(Throwable throwable);
 }

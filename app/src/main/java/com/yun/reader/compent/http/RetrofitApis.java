@@ -3,7 +3,7 @@ package com.yun.reader.compent.http;
 import com.yun.reader.common.http.response.BaseResponse;
 import com.yun.reader.compent.conver.ResultResponse;
 import com.yun.reader.product.book.manager.PromotionBookBean;
-import com.yun.reader.product.user.LoginResponse;
+import com.yun.reader.product.user.UserInfo;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import retrofit2.http.POST;
 
 public interface RetrofitApis {
     @POST(value = "user/account")
-    Observable<ResultResponse<LoginResponse>> account();
+    Observable<ResultResponse<UserInfo>> account();
 
 //    @POST(value = "app/conf")
 //    Observable<BaseResponse<AppConfResponse>> appConf(@Body Object obj);
@@ -88,7 +88,7 @@ public interface RetrofitApis {
 //    C3834b<ResponseBody> downloadFile(@C3710w String str);
 //
 //    @POST(value = "user/edit")
-//    Observable<BaseResponse<LoginResponse>> edit(@Body Object obj);
+//    Observable<BaseResponse<UserInfo>> edit(@Body Object obj);
 //
 //    @POST(value = "app/feedback")
 //    Observable<BaseResponse<String>> feedback(@Body Object obj);
@@ -112,7 +112,7 @@ public interface RetrofitApis {
 //    Observable<BaseResponse<String>> imageCode(@Body Object obj);
 //
     @POST(value = "user/login")
-    Observable<ResultResponse<LoginResponse>> login(@Body Object obj);
+    Observable<ResultResponse<UserInfo>> login(@Body Object obj);
 
 //    @POST(value = "book/orderInfo")
 //    Observable<BaseResponse<OrderInfoResponse>> orderInfo(@Body Object obj);

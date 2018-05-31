@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 
-public class LoginResponse implements Serializable {
+public class UserInfo implements Serializable {
 
     /**
      * userId : 51353994

@@ -7,12 +7,8 @@ import java.lang.reflect.Type;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
-/* compiled from: Converter */
-/* renamed from: retrofit2.e */
 public interface YunGsonConverter<F, T> {
 
-    /* compiled from: Converter */
-    /* renamed from: retrofit2.e$a */
     public static abstract class DefaultConver {
         public YunGsonConverter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotationArr, YunRequest yunRequest) {
             return null;

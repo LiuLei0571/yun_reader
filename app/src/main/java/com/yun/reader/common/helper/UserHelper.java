@@ -1,5 +1,9 @@
 package com.yun.reader.common.helper;
 
+import com.yun.reader.compent.dagger.ReaderControlHelper;
+import com.yun.reader.product.user.UserInfo;
+import com.yun.reader.product.user.module.UserManager;
+
 /**
  * 用途：.
  *
@@ -10,4 +14,14 @@ package com.yun.reader.common.helper;
 
 
 public class UserHelper {
+    private static UserManager userManager;
+
+    static {
+        userManager = ReaderControlHelper.getInstance().userManager;
+    }
+
+    public static UserInfo getUserInfo() {
+        UserInfo userInfo = userManager.getLocalUserInfo();
+        return userInfo;
+    }
 }

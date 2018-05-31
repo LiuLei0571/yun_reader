@@ -1,5 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="SplashTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
+    <style name="AppTheme" parent="AppTheme.NoActionBar">
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="PressedViewStyle">@style/PressedViewStyle</item>
+        <item name="android:buttonStyle">@style/Button</item>
+        <item name="android:editTextStyle">@style/EditText</item>
+        <item name="TopBarStyle">@style/TopBarStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@color/color_background</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!--<item name="windowActionBar">false</item>-->
+        <!--<item name="windowNoTitle">true</item>-->
+    </style>
 
+    <style name="PressedViewStyle">
+        <!--<item name="pressedColorRatio">0.9</item>-->
+        <!--<item name="disEnableAlpha">0.5</item>-->
+
+    </style>
+
+    <style name="TopBarStyle">
+        <item name="android:paddingLeft">@dimen/dp_8</item>
+        <item name="android:paddingRight">@dimen/dp_8</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Button" parent="@android:style/Widget.Button">
+        <!--<item name="android:textSize">@dimen/size_major_middle</item>-->
+        <!--<item name="android:background">@drawable/btn_orange</item>-->
+        <!--<item name="android:textColor">@color/color_text_major</item>-->
+    </style>
+    <style name="TextView" parent="@android:style/Widget.TextView">
+        <!--<item name="android:textColorHint">@color/color_input_hint</item>-->
+        <!--<item name="android:textColor">@color/color_text_major</item>-->
+        <!--<item name="android:textSize">@dimen/size_normal_large</item>-->
+    </style>
+    <style name="EditText" parent="@android:style/Widget.EditText">
+        <!--<item name="android:textColorHint">@color/color_input_hint</item>-->
+        <!--<item name="android:textColor">@color/color_text_major</item>-->
+        <!--<item name="android:textSize">@dimen/dp_8</item>-->
+        <!--<item name="android:textCursorDrawable">@drawable/color_cursor</item>-->
+        <!--<item name="android:cursorVisible">true</item>-->
+    </style>
 </resources>
