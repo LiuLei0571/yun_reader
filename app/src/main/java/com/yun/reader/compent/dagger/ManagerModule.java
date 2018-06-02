@@ -20,13 +20,13 @@ import dagger.Provides;
 public class ManagerModule {
     @Provides
     @Singleton
-    public MainManager provideMainManager() {
+    protected MainManager provideMainManager() {
         return new MainManager();
     }
 
     @Provides
     @Singleton
-    public UserManager provideUserManager() {
+    protected UserManager provideUserManager() {
         return new UserManager();
     }
 }

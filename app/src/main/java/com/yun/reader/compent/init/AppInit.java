@@ -36,7 +36,10 @@ public enum AppInit {
 
     public static void initFrame(Context context, AppInit... appInits) {
         for (AppInit appInit : appInits) {
-            appInit.doInit(context);
+            if (context != null) {
+                appInit.doInit(context);
+
+            }
         }
     }
 

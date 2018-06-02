@@ -46,7 +46,7 @@ public class SplashActivity extends TempleActivity {
             startActivity(new Intent(this, SelectGenderActivity.class));
         } else {
             startActivity(new Intent(this, MainActivity.class));
-
         }
+        finish();
     }
 }

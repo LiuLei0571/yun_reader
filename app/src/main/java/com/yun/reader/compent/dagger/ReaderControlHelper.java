@@ -22,7 +22,7 @@ public class ReaderControlHelper {
     @Inject
     public RetrofitManager retrofitManager;
     @Inject
-    public  UserManager userManager;
+    public UserManager userManager;
     @Inject
     public ParseImpl parse;
 
@@ -30,16 +30,12 @@ public class ReaderControlHelper {
 
     public static ReaderControlHelper getInstance() {
         if (readerControlHelper == null) {
-            synchronized (ReaderControlHelper.class) {
-                if (readerControlHelper == null) {
-                    readerControlHelper = new ReaderControlHelper();
-                }
-            }
+            readerControlHelper = new ReaderControlHelper();
         }
         return readerControlHelper;
     }
 
-    public ReaderControlHelper() {
+    private ReaderControlHelper() {
         ReaderControl.getReaderComponent().plus(this);
     }
 }

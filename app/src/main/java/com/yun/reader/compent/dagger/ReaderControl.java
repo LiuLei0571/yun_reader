@@ -21,8 +21,11 @@ public class ReaderControl {
 
     public static void init(Context context) {
         ReaderModule readerModule = new ReaderModule(context);
-        ManagerModule managerModule=new ManagerModule();
-        readerComponent = DaggerReaderComponent.builder().readerModule(readerModule).managerModule(managerModule).build();
+        ManagerModule managerModule = new ManagerModule();
+        readerComponent = DaggerReaderComponent.builder()
+                .readerModule(readerModule)
+                .managerModule(managerModule)
+                .build();
     }
 
     public static ReaderComponent getReaderComponent() {

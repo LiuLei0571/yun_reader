@@ -1,5 +1,7 @@
 package com.yun.reader.product.splash;
 
+import android.view.View;
+
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
@@ -22,5 +24,10 @@ public class SelectGenderActivity extends TempleActivity {
     @Override
     public void doInject(ActivityComponent activityComponent) {
         activityComponent.plus(this);
+    }
+
+    @Override
+    public void afterLoadView(View mView) {
+        super.afterLoadView(mView);
     }
 }

@@ -13,7 +13,7 @@ import dagger.Component;
  * 邮箱:liulei@getui.com.
  */
 @Singleton
-@Component(modules = {ReaderModule.class, ManagerModule.class})
+@Component(modules = {ManagerModule.class, ReaderModule.class})
 public interface ReaderComponent {
     ActivityComponent plus(ActivityModule activityModule);
 
@@ -22,7 +22,6 @@ public interface ReaderComponent {
     ServiceComponent plus(ServiceModule serviceModule);
 
     DialogComponent plus(DialogModule dialogModule);
-
 
     void plus(ReaderControlHelper readerControlHelper);
 }
