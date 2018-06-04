@@ -18,7 +18,6 @@ import javax.inject.Inject;
  * 邮箱:liulei@getui.com.
  */
 
-
 public class MainPresenter extends BasePresenter<MainActivity> {
     @Inject
     MainManager mainManager;

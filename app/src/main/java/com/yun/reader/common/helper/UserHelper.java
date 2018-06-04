@@ -17,11 +17,13 @@ public class UserHelper {
     private static UserManager userManager;
 
     static {
-        userManager = ReaderControlHelper.getInstance().userManager;
+            userManager = ReaderControlHelper.getInstance().userManager;
     }
-
     public static UserInfo getUserInfo() {
-        UserInfo userInfo = userManager.getLocalUserInfo();
-        return userInfo;
+        if (userManager != null) {
+            UserInfo userInfo = userManager.getLocalUserInfo();
+            return userInfo;
+        }
+        return null;
     }
 }

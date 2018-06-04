@@ -16,7 +16,7 @@ import javax.inject.Inject;
  */
 
 
-public class ReaderControlHelper {
+public final class ReaderControlHelper {
     @Inject
     public ImageShowImpl imageShow;
     @Inject
@@ -26,11 +26,16 @@ public class ReaderControlHelper {
     @Inject
     public ParseImpl parse;
 
-    private static ReaderControlHelper readerControlHelper;
+    private static ReaderControlHelper readerControlHelper=null;
 
     public static ReaderControlHelper getInstance() {
         if (readerControlHelper == null) {
-            readerControlHelper = new ReaderControlHelper();
+            synchronized (ReaderControlHelper.class) {
+                if (readerControlHelper == null) {
+                    readerControlHelper = new ReaderControlHelper();
+
+                }
+            }
         }
         return readerControlHelper;
     }

@@ -1,6 +1,7 @@
 package com.yun.reader.compent.init;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * 用途：.
@@ -13,12 +14,12 @@ import android.content.Context;
 
 public enum AppInit {
     framework("框架", FrameWorkInit.class);
-    private String desc;
+    private String initModuleName;
     private Class<? extends AppInitImpl> clazz;
     private boolean isInit = false;
 
-    AppInit(String desc, Class<? extends AppInitImpl> frameWorkInitClass) {
-        this.desc = desc;
+    AppInit(String initModuleName, Class<? extends AppInitImpl> frameWorkInitClass) {
+        this.initModuleName = initModuleName;
         this.clazz = frameWorkInitClass;
     }
 
@@ -26,8 +27,8 @@ public enum AppInit {
         this.clazz = clazz;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getInitModuleName() {
+        return initModuleName;
     }
 
     public static AppInit[] allAppInit = new AppInit[]{
@@ -35,23 +36,31 @@ public enum AppInit {
     };
 
     public static void initFrame(Context context, AppInit... appInits) {
-        for (AppInit appInit : appInits) {
-            if (context != null) {
-                appInit.doInit(context);
+        if (appInits != null && appInits.length > 0) {
+            long startTime = System.currentTimeMillis();
+            for (AppInit appInit : appInits) {
+                if (context != null && appInit.doInit(context)) {
 
+                    long endTime = System.currentTimeMillis();
+                    Log.d(appInit.getInitModuleName(), "initTime: " + (endTime - startTime));
+                    startTime = endTime;
+                }
             }
         }
+
     }
 
-    private void doInit(Context context) {
+    private boolean doInit(Context context) {
         if (!isInit) {
             isInit = true;
             try {
                 AppInitImpl iAppInit = clazz.newInstance();
                 iAppInit.init(context);
             } catch (Exception e) {
-
+                return false;
             }
+            return true;
         }
+        return false;
     }
 }

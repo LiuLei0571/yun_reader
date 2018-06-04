@@ -10,6 +10,8 @@ import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
 import com.yun.reader.product.MainActivity;
 
+import javax.inject.Inject;
+
 /**
  * 用途：.
  *
@@ -20,6 +22,8 @@ import com.yun.reader.product.MainActivity;
 
 
 public class SplashActivity extends TempleActivity {
+    @Inject
+
     @Override
     public int getLayoutView() {
         return R.layout.activity_splash;
@@ -38,7 +42,8 @@ public class SplashActivity extends TempleActivity {
             public void run() {
                 firstStartApp();
             }
-        }, 1500);
+        }, 2500);
+
     }
 
     private void firstStartApp() {

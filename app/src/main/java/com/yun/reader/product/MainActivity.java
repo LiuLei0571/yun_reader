@@ -1,11 +1,13 @@
 package com.yun.reader.product;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
+import com.yun.reader.product.splash.SplashActivity;
 
 import javax.inject.Inject;
 
@@ -34,15 +36,15 @@ public class MainActivity extends TempleActivity {
     @Override
     public void afterLoadView(View mView) {
         super.afterLoadView(mView);
+        presenter.getData();
         tvTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.getData();
+                startActivity(new Intent(MainActivity.this, SplashActivity.class));
 
             }
         });
     }
-
     public void showLoginName(String userName) {
         tvTest.setText(userName);
     }

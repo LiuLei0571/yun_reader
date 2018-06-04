@@ -26,4 +26,9 @@ public class UserManager extends BaseManager {
         }
         return userInfo;
     }
+
+    public void saveLocalUserInfo(UserInfo userInfo) {
+        SpHelper.putBean(SpKeys.USER_INFO, userInfo);
+        CacheHelper.putCache(CacheKeys.YUN_USER_INFO, userInfo);
+    }
 }

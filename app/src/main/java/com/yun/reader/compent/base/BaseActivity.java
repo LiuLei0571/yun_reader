@@ -29,20 +29,21 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutView());
-        if (activityComponent == null) {
-            activityComponent = ReaderControl.createActivityComponent(this);
-        }
+
         if (presenterControl == null) {
             presenterControl = new PresenterControl();
+        }
+        if (activityComponent == null) {
+            activityComponent = ReaderControl.createActivityComponent(this);
         }
         doInject(activityComponent);
         View mView = getLayoutInflater().inflate(getLayoutView(), null, false);
         beforeLoadView();
         setContentView(mView);
         bindView(mView);
+        initParam(getIntent().getExtras());
         afterLoadView(mView);
         presenterControl.bind(savedInstanceState, getIntent().getExtras());
-
     }
 
     @Override
@@ -57,6 +58,10 @@ public abstract class BaseActivity extends Activity implements ViewImpl, Loading
         if (basePresenter != null) {
             presenterControl.savePresenter(basePresenter);
         }
+    }
+
+    protected void initParam(Bundle bundle) {
+
     }
 
     @Override

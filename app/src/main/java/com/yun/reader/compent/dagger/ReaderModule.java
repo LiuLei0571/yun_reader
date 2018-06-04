@@ -1,6 +1,7 @@
 package com.yun.reader.compent.dagger;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -39,6 +40,12 @@ public class ReaderModule {
 
     public ReaderModule(Context application) {
         this.application = application;
+    }
+
+    @Singleton
+    @Provides
+    protected AssetManager provideAssetManager() {
+        return application.getAssets();
     }
 
     @Provides

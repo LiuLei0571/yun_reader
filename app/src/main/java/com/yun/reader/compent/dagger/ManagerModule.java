@@ -18,15 +18,16 @@ import dagger.Provides;
 
 @Module
 public class ManagerModule {
+
+    @Provides
+    protected UserManager provideUserManager() {
+        return new UserManager();
+    }
+
     @Provides
     @Singleton
     protected MainManager provideMainManager() {
         return new MainManager();
     }
 
-    @Provides
-    @Singleton
-    protected UserManager provideUserManager() {
-        return new UserManager();
-    }
 }

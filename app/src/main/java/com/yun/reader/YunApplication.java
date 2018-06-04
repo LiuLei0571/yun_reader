@@ -20,7 +20,7 @@ public class YunApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        appContext = this;
+        appContext = getApplicationContext();
         AppInit.initFrame(appContext, AppInit.allAppInit);
     }
 
