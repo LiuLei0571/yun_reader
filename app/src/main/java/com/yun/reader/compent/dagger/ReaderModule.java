@@ -86,6 +86,7 @@ public class ReaderModule {
                 .writeTimeout(60000, TimeUnit.MILLISECONDS)
                 .addInterceptor(new YunHttpHeaderInterceptor())
                 .cookieJar(cookieJar);
+        OkHttpClient okHttpClient;
         return okHttpClientBuilder.build();
     }
 
