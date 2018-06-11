@@ -5,6 +5,10 @@ import android.view.View;
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
+import com.yun.reader.compent.ui.widget.HeadImageView;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * 用途：.
@@ -16,6 +20,11 @@ import com.yun.reader.compent.dagger.ActivityComponent;
 
 
 public class SelectGenderActivity extends TempleActivity {
+
+    @BindView(R.id.iv_header_man)
+    HeadImageView ivHeaderMan;
+    @BindView(R.id.iv_header_woman)
+    HeadImageView ivHeaderWoman;
 
     @Override
     public int getLayoutView() {
@@ -31,5 +40,19 @@ public class SelectGenderActivity extends TempleActivity {
     public void afterLoadView(View mView) {
         super.afterLoadView(mView);
     }
+
+    @OnClick({R.id.iv_header_man, R.id.iv_header_woman})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.iv_header_man:
+                break;
+            case R.id.iv_header_woman:
+                break;
+            default:
+                break;
+
+        }
+    }
+
 
 }

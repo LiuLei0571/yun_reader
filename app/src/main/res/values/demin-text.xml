@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dp_text_1">1dp</dimen>
+    <dimen name="dp_text_2">2dp</dimen>
+    <dimen name="dp_text_3">3dp</dimen>
+    <dimen name="dp_text_4">4dp</dimen>
+    <dimen name="dp_text_5">5dp</dimen>
+    <dimen name="dp_text_6">6dp</dimen>
+    <dimen name="dp_text_7">7dp</dimen>
+    <dimen name="dp_text_8">8dp</dimen>
+    <dimen name="dp_text_9">9dp</dimen>
+    <dimen name="dp_text_10">10dp</dimen>
+    <dimen name="dp_text_11">11dp</dimen>
+    <dimen name="dp_text_12">12dp</dimen>
+    <dimen name="dp_text_13">13dp</dimen>
+    <dimen name="dp_text_14">14dp</dimen>
+    <dimen name="dp_text_15">15dp</dimen>
+    <dimen name="dp_text_16">16dp</dimen>
+    <dimen name="dp_text_17">17dp</dimen>
+    <dimen name="dp_text_18">18dp</dimen>
+    <dimen name="dp_text_19">19dp</dimen>
+    <dimen name="dp_text_20">20dp</dimen>
+    <dimen name="dp_text_21">22dp</dimen>
+    <dimen name="dp_text_25">25dp</dimen>
+    <dimen name="dp_text_28">28dp</dimen>
+    <dimen name="dp_text_30">30dp</dimen>
+    <dimen name="dp_text_35">35dp</dimen>
+    <dimen name="dp_text_38">38dp</dimen>
+    <dimen name="dp_text_45">45dp</dimen>
+    <dimen name="dp_text_50">50dp</dimen>
+    <dimen name="dp_text_48">48dp</dimen>
+</resources>
