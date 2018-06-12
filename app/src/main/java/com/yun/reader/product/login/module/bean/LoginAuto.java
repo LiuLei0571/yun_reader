@@ -1,4 +1,4 @@
-package com.yun.reader.product.user;
+package com.yun.reader.product.login.module.bean;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 
-public class UserInfo implements Serializable {
+public class LoginAuto implements Serializable {
 
     /**
      * userId : 51353994

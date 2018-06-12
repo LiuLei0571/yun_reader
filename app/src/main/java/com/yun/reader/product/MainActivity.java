@@ -7,7 +7,8 @@ import android.widget.TextView;
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.product.splash.SplashActivity;
+import com.yun.reader.product.splash.view.SplashActivity;
+import com.yun.reader.product.splash.presenter.SelectGenderPresenter;
 
 import javax.inject.Inject;
 
@@ -19,7 +20,7 @@ import butterknife.BindView;
 public class MainActivity extends TempleActivity {
     TextView mTx;
     @Inject
-    MainPresenter presenter;
+    SelectGenderPresenter presenter;
     @BindView(R.id.tv_test)
     TextView tvTest;
 
@@ -36,7 +37,7 @@ public class MainActivity extends TempleActivity {
     @Override
     public void afterLoadView(View mView) {
         super.afterLoadView(mView);
-        presenter.getData();
+        presenter.loginAuto();
         tvTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

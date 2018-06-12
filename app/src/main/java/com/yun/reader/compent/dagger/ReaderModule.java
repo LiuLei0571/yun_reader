@@ -7,7 +7,7 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.yun.reader.common.config.ApiConfig;
-import com.yun.reader.common.parse.GsonParse;
+import com.yun.reader.common.parse.gson.GsonParse;
 import com.yun.reader.common.parse.ParseImpl;
 import com.yun.reader.compent.conver.SpecialGsonConverterFactory;
 import com.yun.reader.compent.http.RetrofitManager;

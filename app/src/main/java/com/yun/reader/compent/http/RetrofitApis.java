@@ -3,7 +3,8 @@ package com.yun.reader.compent.http;
 import com.yun.reader.common.http.response.BaseResponse;
 import com.yun.reader.compent.conver.ResultResponse;
 import com.yun.reader.product.book.manager.PromotionBookBean;
-import com.yun.reader.product.user.UserInfo;
+import com.yun.reader.product.login.module.bean.LoginAuto;
+import com.yun.reader.product.setting.module.bean.Subscription;
 
 import java.util.List;
 
@@ -21,8 +22,8 @@ import retrofit2.http.POST;
 
 
 public interface RetrofitApis {
-    @POST(value = "user/account")
-    Observable<ResultResponse<UserInfo>> account();
+    @POST(value = "user/login")
+    Observable<ResultResponse<LoginAuto>> login(@Body Object obj);
 
 //    @POST(value = "app/conf")
 //    Observable<BaseResponse<AppConfResponse>> appConf(@Body Object obj);
@@ -88,7 +89,7 @@ public interface RetrofitApis {
 //    C3834b<ResponseBody> downloadFile(@C3710w String str);
 //
 //    @POST(value = "user/edit")
-//    Observable<BaseResponse<UserInfo>> edit(@Body Object obj);
+//    Observable<BaseResponse<LoginAuto>> edit(@Body Object obj);
 //
 //    @POST(value = "app/feedback")
 //    Observable<BaseResponse<String>> feedback(@Body Object obj);
@@ -111,8 +112,8 @@ public interface RetrofitApis {
 //    @POST(value = "user/imageCode")
 //    Observable<BaseResponse<String>> imageCode(@Body Object obj);
 //
-    @POST(value = "user/login")
-    Observable<ResultResponse<UserInfo>> login(@Body Object obj);
+//    @POST(value = "user/loginAuto")
+//    Observable<ResultResponse<LoginAuto>> login(@Body Object obj);
 
 //    @POST(value = "book/orderInfo")
 //    Observable<BaseResponse<OrderInfoResponse>> orderInfo(@Body Object obj);
@@ -172,9 +173,9 @@ public interface RetrofitApis {
 //    @C3815f(a = "http://app1.zhulang.com/a.html")
 //    Observable<ResponseBody> uploadSSLException(@Path(value = , encoded = true) Map<String, String> map);
 //
-//    @POST(value = "user/conf")
-//    Observable<BaseResponse<UserConfResponse>> userConf(@Body Object obj);
-//
+    @POST(value = "user/conf")
+    Observable<BaseResponse<List<Subscription>>> userConf(@Body Object obj);
+
 //    @POST(value= "user/event")
 //    Observable<BaseResponse<String>> userEvent(@Body Object obj);
 //

@@ -1,7 +1,7 @@
 package com.yun.reader.common.helper;
 
 import com.yun.reader.compent.dagger.ReaderControlHelper;
-import com.yun.reader.product.user.UserInfo;
+import com.yun.reader.product.login.module.bean.LoginAuto;
 import com.yun.reader.product.user.module.UserManager;
 
 /**
@@ -19,9 +19,9 @@ public class UserHelper {
     static {
             userManager = ReaderControlHelper.getInstance().userManager;
     }
-    public static UserInfo getUserInfo() {
+    public static LoginAuto getUserInfo() {
         if (userManager != null) {
-            UserInfo userInfo = userManager.getLocalUserInfo();
+            LoginAuto userInfo = userManager.getLocalLoginAuto();
             return userInfo;
         }
         return null;

@@ -1,4 +1,4 @@
-package com.yun.reader.product.splash;
+package com.yun.reader.product.splash.view;
 
 import android.content.Intent;
 import android.view.View;

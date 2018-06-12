@@ -5,7 +5,11 @@ import com.yun.reader.common.config.CacheKeys;
 import com.yun.reader.common.config.SpKeys;
 import com.yun.reader.common.helper.SpHelper;
 import com.yun.reader.compent.base.BaseManager;
-import com.yun.reader.product.user.UserInfo;
+import com.yun.reader.compent.http.CommonObserver;
+import com.yun.reader.product.login.module.bean.LoginAuto;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 用途：.
@@ -18,17 +22,22 @@ import com.yun.reader.product.user.UserInfo;
 
 public class UserManager extends BaseManager {
 
-    public UserInfo getLocalUserInfo() {
-        UserInfo userInfo = CacheHelper.getCache(CacheKeys.YUN_USER_INFO);
+    public LoginAuto getLocalLoginAuto() {
+        LoginAuto userInfo = CacheHelper.getCache(CacheKeys.YUN_USER_INFO);
         if (userInfo == null) {
-            userInfo = SpHelper.getBean(SpKeys.USER_INFO, UserInfo.class);
+            userInfo = SpHelper.getBean(SpKeys.USER_INFO, LoginAuto.class);
             CacheHelper.putCache(CacheKeys.YUN_USER_INFO, userInfo);
         }
         return userInfo;
     }
 
-    public void saveLocalUserInfo(UserInfo userInfo) {
+    public void saveLocalLoginAuto(LoginAuto userInfo) {
         SpHelper.putBean(SpKeys.USER_INFO, userInfo);
         CacheHelper.putCache(CacheKeys.YUN_USER_INFO, userInfo);
+    }
+    public void loginAuto(CommonObserver commonObserver) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("via", "auto");
+        handlerObserver(retrofitApis.login(params), commonObserver);
     }
 }

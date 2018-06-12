@@ -1,4 +1,4 @@
-package com.yun.reader.product;
+package com.yun.reader.product.login.module;
 
 import com.yun.reader.compent.base.BaseManager;
 import com.yun.reader.compent.http.CommonObserver;
@@ -15,7 +15,7 @@ import java.util.Map;
  */
 
 
-public class MainManager extends BaseManager {
+public class LoginAutoManager extends BaseManager {
     public void loginAuto(CommonObserver commonObserver) {
         Map<String, Object> params = new HashMap<>();
         params.put("via", "auto");

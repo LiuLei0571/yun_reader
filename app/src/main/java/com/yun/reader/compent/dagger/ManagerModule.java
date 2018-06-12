@@ -1,6 +1,7 @@
 package com.yun.reader.compent.dagger;
 
-import com.yun.reader.product.MainManager;
+import com.yun.reader.product.login.module.LoginAutoManager;
+import com.yun.reader.product.setting.module.SubscriptionManager;
 import com.yun.reader.product.user.module.UserManager;
 
 import javax.inject.Singleton;
@@ -26,8 +27,13 @@ public class ManagerModule {
 
     @Provides
     @Singleton
-    protected MainManager provideMainManager() {
-        return new MainManager();
+    protected LoginAutoManager provideMainManager() {
+        return new LoginAutoManager();
     }
 
+    @Provides
+    @Singleton
+    protected SubscriptionManager provideSubscriptionManager() {
+        return new SubscriptionManager();
+    }
 }

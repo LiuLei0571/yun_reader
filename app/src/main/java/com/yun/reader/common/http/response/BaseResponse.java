@@ -1,5 +1,7 @@
 package com.yun.reader.common.http.response;
 
+import java.io.Serializable;
+
 /**
  * 用途：.
  *
@@ -9,7 +11,7 @@ package com.yun.reader.common.http.response;
  */
 
 
-public class BaseResponse<T> {
+public class BaseResponse<T> implements Serializable{
     private int code;
     private T data;
     private String message;

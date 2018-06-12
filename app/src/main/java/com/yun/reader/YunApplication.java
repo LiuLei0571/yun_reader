@@ -23,7 +23,6 @@ public class YunApplication extends Application {
         appContext = getApplicationContext();
         AppInit.initFrame(appContext, AppInit.allAppInit);
     }
-
     public static Context getAppContext() {
         return appContext;
     }
