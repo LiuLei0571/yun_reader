@@ -8,7 +8,7 @@ import com.yun.reader.common.helper.ThreadHelper;
 import com.yun.reader.common.helper.UserHelper;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.product.MainActivity;
+import com.yun.reader.product.home.HomeActivity;
 
 import javax.inject.Inject;
 
@@ -50,7 +50,7 @@ public class SplashActivity extends TempleActivity {
         if (UserHelper.getUserInfo() == null) {
             startActivity(new Intent(this, SelectGenderActivity.class));
         } else {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
         }
         finish();
     }

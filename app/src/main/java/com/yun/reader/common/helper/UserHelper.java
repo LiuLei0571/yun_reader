@@ -21,8 +21,8 @@ public class UserHelper {
     }
     public static LoginAuto getUserInfo() {
         if (userManager != null) {
-            LoginAuto userInfo = userManager.getLocalLoginAuto();
-            return userInfo;
+            LoginAuto localLoginAuto = userManager.getLocalLoginAuto();
+            return localLoginAuto;
         }
         return null;
     }

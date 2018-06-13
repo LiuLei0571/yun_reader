@@ -1,11 +1,13 @@
 package com.yun.reader.product.splash.view;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
 import com.yun.reader.compent.ui.widget.HeadImageView;
+import com.yun.reader.product.home.HomeActivity;
 import com.yun.reader.product.splash.presenter.SelectGenderPresenter;
 
 import javax.inject.Inject;
@@ -51,10 +53,8 @@ public class SelectGenderActivity extends TempleActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_header_man:
-                login();
-                break;
             case R.id.iv_header_woman:
-                break;
+                startActivity(new Intent(this, HomeActivity.class));
             default:
                 break;
 

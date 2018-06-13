@@ -23,17 +23,17 @@ import java.util.Map;
 public class UserManager extends BaseManager {
 
     public LoginAuto getLocalLoginAuto() {
-        LoginAuto userInfo = CacheHelper.getCache(CacheKeys.YUN_USER_INFO);
+        LoginAuto userInfo = CacheHelper.getCache(CacheKeys.LOGIN_AUTO);
         if (userInfo == null) {
-            userInfo = SpHelper.getBean(SpKeys.USER_INFO, LoginAuto.class);
-            CacheHelper.putCache(CacheKeys.YUN_USER_INFO, userInfo);
+            userInfo = SpHelper.getBean(SpKeys.LOGIN_AUTO, LoginAuto.class);
+            CacheHelper.putCache(CacheKeys.LOGIN_AUTO, userInfo);
         }
         return userInfo;
     }
 
     public void saveLocalLoginAuto(LoginAuto userInfo) {
-        SpHelper.putBean(SpKeys.USER_INFO, userInfo);
-        CacheHelper.putCache(CacheKeys.YUN_USER_INFO, userInfo);
+        SpHelper.putBean(SpKeys.LOGIN_AUTO, userInfo);
+        CacheHelper.putCache(SpKeys.LOGIN_AUTO, userInfo);
     }
     public void loginAuto(CommonObserver commonObserver) {
         Map<String, Object> params = new HashMap<>();

@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yun.reader.common.http.response.BaseResponse;
 import com.yun.reader.common.parse.ParseImpl;
 
 import java.lang.reflect.Type;
@@ -30,7 +29,7 @@ public class GsonParse implements ParseImpl {
         return new GsonBuilder()
                 .serializeNulls()
                 .disableHtmlEscaping()
-                .setExclusionStrategies(new SpecificClassExclusionStrategy(null, BaseResponse.class))
+//                .setExclusionStrategies(new SpecificClassExclusionStrategy(null, ResultResponse.class))
                 .enableComplexMapKeySerialization()
                 .create();
     }

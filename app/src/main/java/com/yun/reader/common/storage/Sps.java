@@ -53,7 +53,7 @@ public class Sps {
     }
 
     public void putBean(String key, Object object) {
-        sharedPreferences.edit().putString(key, JsonHelper.toJsonString(object));
+        sharedPreferences.edit().putString(key, JsonHelper.toJsonString(object)).apply();
 
     }
 

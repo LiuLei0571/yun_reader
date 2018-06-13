@@ -28,6 +28,7 @@
             android:name=".product.splash.view.SelectGenderActivity"
             android:theme="@style/AppTheme.Fullscreen" />
         <activity android:name=".product.MainActivity" />
+        <activity android:name=".product.home.HomeActivity" />
     </application>
 
 </manifest>

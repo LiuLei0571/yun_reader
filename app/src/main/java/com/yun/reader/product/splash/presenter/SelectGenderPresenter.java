@@ -1,11 +1,14 @@
 package com.yun.reader.product.splash.presenter;
 
+import android.widget.Toast;
+
 import com.yun.reader.common.config.CacheKeys;
+import com.yun.reader.common.config.SpKeys;
 import com.yun.reader.common.helper.SpHelper;
 import com.yun.reader.common.helper.TokenHelper;
+import com.yun.reader.common.http.response.ResultResponse;
 import com.yun.reader.compent.base.BasePresenter;
 import com.yun.reader.compent.base.impl.ViewImpl;
-import com.yun.reader.compent.conver.ResultResponse;
 import com.yun.reader.compent.http.CommonObserver;
 import com.yun.reader.product.login.module.LoginAutoManager;
 import com.yun.reader.product.login.module.bean.LoginAuto;
@@ -43,14 +46,12 @@ public class SelectGenderPresenter extends BasePresenter<SelectGenderActivity> {
                 if (result.getData() != null) {
                     LoginAuto userInfo = result.getData();
                     TokenHelper.setUserToken(userInfo.getToken());
-                    SpHelper.putBean("user_auto", LoginAuto.class);
-//                    getView().getUserInfo(userInfo.getUserName());
+                    SpHelper.putBean(SpKeys.LOGIN_AUTO, result.getData());
                 }
             }
-
             @Override
             public void doFail(String msg) {
-
+                Toast.makeText(getBaseActivity(), msg, Toast.LENGTH_LONG).show();
             }
         });
         subscriptionManager.userConf(new CommonObserver<List<Subscription>>() {
@@ -61,6 +62,7 @@ public class SelectGenderPresenter extends BasePresenter<SelectGenderActivity> {
                     SpHelper.putBean(CacheKeys.YUN_SUBSCRIPTION, result.getData());
                 }
             }
+
             @Override
             public void doFail(String msg) {
 

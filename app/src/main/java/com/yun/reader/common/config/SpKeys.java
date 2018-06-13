@@ -13,7 +13,7 @@ public interface SpKeys {
     /**
      * 用户信息
      */
-    String USER_INFO = "user";
+    String LOGIN_AUTO = "login_auto";
 
     /**
      * 用户信息(我的信息)

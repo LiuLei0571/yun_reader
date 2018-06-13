@@ -1,6 +1,6 @@
 package com.yun.reader.compent.http;
 
-import com.yun.reader.compent.conver.ResultResponse;
+import com.yun.reader.common.http.response.ResultResponse;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;

@@ -9,7 +9,7 @@ import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersisto
 import com.yun.reader.common.config.ApiConfig;
 import com.yun.reader.common.parse.gson.GsonParse;
 import com.yun.reader.common.parse.ParseImpl;
-import com.yun.reader.compent.conver.SpecialGsonConverterFactory;
+import com.yun.reader.compent.conver.GsonConverterFactory;
 import com.yun.reader.compent.http.RetrofitManager;
 import com.yun.reader.compent.http.YunHttpHeaderInterceptor;
 import com.yun.reader.compent.image.DisplayOption;
@@ -103,7 +103,7 @@ public class ReaderModule {
                 .baseUrl(ApiConfig.PROTOCOL_HTTPS + ApiConfig.BASE_HOST)
                 .client(okHttpClient)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(SpecialGsonConverterFactory.create(GsonParse.initGson()))
+                .addConverterFactory(GsonConverterFactory.create(GsonParse.initGson()))
                 .build();
         return retrofit;
     }
