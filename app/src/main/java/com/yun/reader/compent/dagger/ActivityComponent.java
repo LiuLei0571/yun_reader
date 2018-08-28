@@ -3,6 +3,7 @@ package com.yun.reader.compent.dagger;
 import com.yun.reader.product.MainActivity;
 import com.yun.reader.compent.dagger.annotion.ActivityScope;
 import com.yun.reader.product.home.HomeActivity;
+import com.yun.reader.product.reader.ReaderActivity;
 import com.yun.reader.product.splash.view.SelectGenderActivity;
 import com.yun.reader.product.splash.view.SplashActivity;
 import com.yun.reader.product.user.view.UserInfoActivity;
@@ -27,4 +28,6 @@ public interface ActivityComponent {
     void plus(SelectGenderActivity selectGenderActivity);
 
     void plus(HomeActivity homeActivity);
+
+    void plus(ReaderActivity readerActivity);
 }
