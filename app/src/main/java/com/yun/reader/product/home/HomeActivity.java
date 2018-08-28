@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
-import com.yun.reader.product.reader.ReaderActivity;
+import com.yun.reader.product.reader.activity.ReaderActivity;
 
 import butterknife.BindView;
 

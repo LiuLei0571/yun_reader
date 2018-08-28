@@ -31,7 +31,7 @@
             android:theme="@style/AppTheme.Fullscreen" />
         <activity android:name=".product.MainActivity" />
         <activity android:name=".product.home.HomeActivity" />
-        <activity android:name=".product.reader.ReaderActivity" />
+        <activity android:name=".product.reader.activity.ReaderActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.yun.reader.product.reader;
+package com.yun.reader.product.reader.activity;
 
 import android.view.View;
 
@@ -34,6 +34,6 @@ public class ReaderActivity extends TempleActivity {
     @Override
     public void afterLoadView(View mView) {
         super.afterLoadView(mView);
-        presenter.downloadChapterZip("390780");
+        presenter.downloadChapterList("390780");
     }
 }

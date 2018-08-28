@@ -1,5 +1,7 @@
 package com.yun.reader.product.reader.fragment;
 
+import com.yun.reader.compent.base.BaseFragment;
+
 /**
  * 用途：.
  *
@@ -9,5 +11,5 @@ package com.yun.reader.product.reader.fragment;
  */
 
 
-public class BaseChapterFragment {
+public class ChapterListFragment extends BaseFragment {
 }
