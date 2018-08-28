@@ -1,6 +1,7 @@
 package com.yun.reader.compent.dagger;
 
 import com.yun.reader.product.login.module.LoginAutoManager;
+import com.yun.reader.product.reader.manager.ReadeDetailManager;
 import com.yun.reader.product.setting.module.SubscriptionManager;
 import com.yun.reader.product.user.module.UserManager;
 
@@ -35,5 +36,11 @@ public class ManagerModule {
     @Singleton
     protected SubscriptionManager provideSubscriptionManager() {
         return new SubscriptionManager();
+    }
+
+    @Provides
+    @Singleton
+    protected ReadeDetailManager provideReadeDetailManager() {
+        return new ReadeDetailManager();
     }
 }

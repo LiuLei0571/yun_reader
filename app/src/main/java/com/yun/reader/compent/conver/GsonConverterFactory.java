@@ -2,6 +2,7 @@ package com.yun.reader.compent.conver;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.yun.reader.common.http.response.ResultResponse;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -36,6 +37,6 @@ public class GsonConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        return new GsonResponseBodyConverter(type);
+        return new GsonResponseBodyConverter<ResultResponse>(type);
     }
 }

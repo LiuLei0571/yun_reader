@@ -1,8 +1,10 @@
 package com.yun.reader.compent.http;
 
 import com.yun.reader.common.http.response.ResultResponse;
+import com.yun.reader.product.book.manager.BookDetailBean;
 import com.yun.reader.product.book.manager.PromotionBookBean;
 import com.yun.reader.product.login.module.bean.LoginAuto;
+import com.yun.reader.product.reader.manager.module.DownloadFileResponse;
 import com.yun.reader.product.setting.module.bean.Subscription;
 
 import java.util.List;
@@ -24,7 +26,7 @@ public interface RetrofitApis {
     @POST(value = "user/login")
     Observable<ResultResponse<LoginAuto>> login(@Body Object obj);
 
-//    @POST(value = "app/conf")
+    //    @POST(value = "app/conf")
 //    Observable<ResultResponse<AppConfResponse>> appConf(@Body Object obj);
 //
 //    @POST(value = "app/conf")
@@ -36,9 +38,10 @@ public interface RetrofitApis {
 //    @POST(value = "book/detail")
 //    Observable<ResultResponse<BookDetailResponse>> bookDetail(@Body Object obj);
 //
-//    @POST(value= "book/info")
-//    Observable<ResultResponse<BookResponse>> bookInfo(@Body Object obj);
-//
+    @POST(value = "book/info")
+    Observable<ResultResponse<BookDetailBean>> bookInfo(@Body Object obj);
+
+    //
 //    @POST(value = "book/info")
 //    Observable<ResultResponse<List<BookResponse>>> bookInfoArray(@Body Object obj);
 //
@@ -71,12 +74,12 @@ public interface RetrofitApis {
 //
 //    @POST(value = "book/comment")
 //    Observable<ResultResponse<Object>> comment(@Body Object obj);
-//
-//    @POST(value = "book/downloadChaptersList")
-//    Observable<DownloadFileResponse> downloadChapterList(@Body Object obj);
-//
-//    @POST(value = "book/downloadChapters")
-//    Observable<DownloadFileResponse> downloadChapters(@Body Object obj);
+
+    @POST(value = "book/downloadChaptersList")
+    Observable<ResultResponse<DownloadFileResponse>> downloadChapterList(@Body Object obj);
+
+    @POST(value = "book/downloadChapters")
+    Observable<ResultResponse<DownloadFileResponse>> downloadChapters(@Body Object obj);
 //
 //    @C3815f
 //    Observable<DownloadFileResponse> downloadCover(@C3710w String str);
@@ -114,7 +117,7 @@ public interface RetrofitApis {
 //    @POST(value = "user/loginAuto")
 //    Observable<ResultResponse<LoginAuto>> login(@Body Object obj);
 
-//    @POST(value = "book/orderInfo")
+    //    @POST(value = "book/orderInfo")
 //    Observable<ResultResponse<OrderInfoResponse>> orderInfo(@Body Object obj);
 //
 //    @POST(value = "book/pay")

@@ -1,5 +1,7 @@
 package com.yun.reader.common.helper;
 
+import android.text.TextUtils;
+
 /**
  * 用途：.
  *
@@ -11,7 +13,10 @@ package com.yun.reader.common.helper;
 
 public class TokenHelper {
     public static String getUserToken() {
-        return SpHelper.getString("login_token");
+        if (TextUtils.isEmpty(SpHelper.getString("login_token"))) {
+            return "";
+        }
+        return "Bearer " + SpHelper.getString("login_token");
     }
 
     public static void setUserToken(String value) {

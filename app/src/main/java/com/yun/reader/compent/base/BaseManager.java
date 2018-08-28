@@ -5,6 +5,8 @@ import com.yun.reader.compent.dagger.ReaderControlHelper;
 import com.yun.reader.compent.http.CommonConsumer;
 import com.yun.reader.compent.http.RetrofitApis;
 
+import java.util.HashMap;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -25,6 +27,9 @@ public class BaseManager {
 
     static {
         retrofitApis = ReaderControlHelper.getInstance().retrofitManager.provideRetrofit();
+    }
+    protected HashMap<String,Object> getParamsMap(){
+        return new HashMap<>();
     }
 
     protected <T> void handlerObserver(Observable<? extends T> observable, Observer commonObserver) {

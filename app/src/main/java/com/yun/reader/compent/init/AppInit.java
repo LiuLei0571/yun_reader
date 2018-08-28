@@ -13,7 +13,8 @@ import android.util.Log;
 
 
 public enum AppInit {
-    framework("框架", FrameWorkInit.class);
+    framework("框架", FrameWorkInit.class),
+    file("文件系统", FileInit.class);
     private String initModuleName;
     private Class<? extends AppInitImpl> clazz;
     private boolean isInit = false;
@@ -32,7 +33,7 @@ public enum AppInit {
     }
 
     public static AppInit[] allAppInit = new AppInit[]{
-            framework
+            framework, file
     };
 
     public static void initFrame(Context context, AppInit... appInits) {

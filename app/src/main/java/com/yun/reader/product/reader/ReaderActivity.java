@@ -1,8 +1,13 @@
 package com.yun.reader.product.reader;
 
+import android.view.View;
+
 import com.yun.reader.R;
 import com.yun.reader.compent.base.TempleActivity;
 import com.yun.reader.compent.dagger.ActivityComponent;
+import com.yun.reader.product.reader.presenter.ReaderDetailPresenter;
+
+import javax.inject.Inject;
 
 /**
  * 用途：.
@@ -14,6 +19,8 @@ import com.yun.reader.compent.dagger.ActivityComponent;
 
 
 public class ReaderActivity extends TempleActivity {
+    @Inject
+    ReaderDetailPresenter presenter;
     @Override
     public int getLayoutView() {
         return R.layout.activity_reader_detail;
@@ -22,5 +29,11 @@ public class ReaderActivity extends TempleActivity {
     @Override
     public void doInject(ActivityComponent activityComponent) {
         activityComponent.plus(this);
+    }
+
+    @Override
+    public void afterLoadView(View mView) {
+        super.afterLoadView(mView);
+        presenter.downloadChapterZip("390780");
     }
 }
