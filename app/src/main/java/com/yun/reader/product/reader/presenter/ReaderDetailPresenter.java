@@ -15,6 +15,7 @@ import com.yun.reader.product.reader.manager.ReadeDetailManager;
 import com.yun.reader.product.reader.manager.module.DownloadFileResponse;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.inject.Inject;
 
@@ -67,12 +68,21 @@ public class ReaderDetailPresenter extends BasePresenter<ReaderActivity> {
             @Override
             public void doSuccess(ResultResponse<DownloadFileResponse> result) {
                 if (result.getData() != null) {
-                    String filePath = FileStrings.ONLINE + UserHelper.getUserInfo().getUserId() + bookId + File.separator + System.currentTimeMillis();
-                    File file=new File(filePath);
+                    String filePath = FileStrings.ONLINE + UserHelper.getUserInfo().getUserId() + File.separator + bookId + File.separator + System.currentTimeMillis();
+                    File file = new File(filePath);
                     if (!file.exists()) {
                         file.mkdirs();
                     }
-
+                    if (ZipUtil.unzip(result.getData().getFile(), filePath)) {
+                        try {
+                            FileHelper.getInstance().createFileList(file, FileStrings.ONLINE + UserHelper.getUserInfo().getUserId() + File.separator + bookId);
+                            FileHelper.getInstance().deleteFile(file);
+                            file.delete();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    result.getData().getFile().delete();
                 }
             }
 

@@ -21,6 +21,7 @@ import javax.inject.Inject;
 public class ReaderActivity extends TempleActivity {
     @Inject
     ReaderDetailPresenter presenter;
+
     @Override
     public int getLayoutView() {
         return R.layout.activity_reader_detail;
@@ -34,6 +35,7 @@ public class ReaderActivity extends TempleActivity {
     @Override
     public void afterLoadView(View mView) {
         super.afterLoadView(mView);
-        presenter.downloadChapterList("390780");
+        presenter.downloadChapterList("375388");
+        presenter.downloadChapterDetail("375388", 1);
     }
 }

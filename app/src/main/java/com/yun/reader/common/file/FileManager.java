@@ -5,7 +5,10 @@ import android.support.v4.util.LruCache;
 import com.yun.reader.common.helper.UserHelper;
 import com.yun.reader.product.book.manager.ChapterResponse;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,6 +70,90 @@ public class FileManager {
                 file.mkdirs();
             }
         }
+    }
+
+    public void createFileList(File file, String str) throws IOException {
+        File[] listFiles = file.listFiles();
+        for (File listFile : listFiles) {
+            file1TransferFile2(listFile, new File(str, listFile.getName()));
+        }
+    }
+
+    public void file1TransferFile2(File file, File file2) throws IOException {
+        Throwable th;
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream;
+        try {
+            BufferedInputStream bufferedInputStream2 = new BufferedInputStream(new FileInputStream(file));
+            try {
+                bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file2));
+                try {
+                    byte[] bArr = new byte[5120];
+                    while (true) {
+                        int read = bufferedInputStream2.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        bufferedOutputStream.write(bArr, 0, read);
+                    }
+                    bufferedOutputStream.flush();
+                    if (bufferedInputStream2 != null) {
+                        bufferedInputStream2.close();
+                    }
+                    if (bufferedOutputStream != null) {
+                        bufferedOutputStream.close();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedInputStream = bufferedInputStream2;
+                    if (bufferedInputStream != null) {
+                        bufferedInputStream.close();
+                    }
+                    if (bufferedOutputStream != null) {
+                        bufferedOutputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
+                bufferedInputStream = bufferedInputStream2;
+                if (bufferedInputStream != null) {
+                    bufferedInputStream.close();
+                }
+                if (bufferedOutputStream != null) {
+                    bufferedOutputStream.close();
+                }
+                throw th;
+            }
+        } catch (Throwable th4) {
+            th = th4;
+            bufferedOutputStream = null;
+            if (bufferedInputStream != null) {
+                bufferedInputStream.close();
+            }
+            if (bufferedOutputStream != null) {
+                bufferedOutputStream.close();
+            }
+        }
+    }
+
+    public boolean deleteFile(File file) {
+        boolean z = false;
+        if (file != null && file.exists()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        deleteFile(file2);
+                    } else {
+                        z = file2.delete();
+                    }
+                }
+                file.delete();
+            }
+        }
+        return z;
     }
 
     public boolean downFile(ResponseBody responseBody, String str, String str2) throws Throwable {
@@ -158,5 +245,4 @@ public class FileManager {
             return false;
         }
     }
-
 }

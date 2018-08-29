@@ -47,7 +47,7 @@ public class GsonResponseBodyConverter<T> implements Converter<ResponseBody, Res
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }
-
+            responseBody.close();
         } else if (responseBody.contentType().toString().startsWith("application/json")) {
             try {
                 String responseBodyString = responseBody.string();
