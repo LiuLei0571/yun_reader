@@ -24,7 +24,7 @@ public class ReaderActivity extends TempleActivity {
 
     @Override
     public int getLayoutView() {
-        return R.layout.activity_reader_detail;
+        return R.layout.layout_reader_detail;
     }
 
     @Override

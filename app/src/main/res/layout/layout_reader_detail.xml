@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background=" #cfc09d">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#cfc09d">
+
+        <!--<com.zhulang.reader.widget.autoread.AutoTurnPageSurfaceView-->
+        <!--android:id="@+id/autoTurnPageSurfaceView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone" />-->
+
+        <!--<com.zhulang.reader.speech.view.SpeechSurfaceView-->
+        <!--android:id="@+id/speechSurfaceView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:visibility="gone" />-->
+        <com.yun.reader.product.reader.widget.ReadView
+            android:id="@+id/read"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--<include layout="@layout/activity_read_guide" />-->
+    </RelativeLayout>
+
+</RelativeLayout>

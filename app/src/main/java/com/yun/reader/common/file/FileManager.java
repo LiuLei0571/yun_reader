@@ -97,44 +97,33 @@ public class FileManager {
                         bufferedOutputStream.write(bArr, 0, read);
                     }
                     bufferedOutputStream.flush();
-                    if (bufferedInputStream2 != null) {
-                        bufferedInputStream2.close();
-                    }
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
+                    closeBufferedStream(bufferedInputStream2, bufferedOutputStream);
                 } catch (Throwable th2) {
                     th = th2;
                     bufferedInputStream = bufferedInputStream2;
-                    if (bufferedInputStream != null) {
-                        bufferedInputStream.close();
-                    }
-                    if (bufferedOutputStream != null) {
-                        bufferedOutputStream.close();
-                    }
+                    closeBufferedStream(bufferedInputStream, bufferedOutputStream);
                     throw th;
                 }
             } catch (Throwable th3) {
                 th = th3;
                 bufferedOutputStream = null;
                 bufferedInputStream = bufferedInputStream2;
-                if (bufferedInputStream != null) {
-                    bufferedInputStream.close();
-                }
-                if (bufferedOutputStream != null) {
-                    bufferedOutputStream.close();
-                }
+                closeBufferedStream(bufferedInputStream, bufferedOutputStream);
                 throw th;
             }
         } catch (Throwable th4) {
             th = th4;
             bufferedOutputStream = null;
-            if (bufferedInputStream != null) {
-                bufferedInputStream.close();
-            }
-            if (bufferedOutputStream != null) {
-                bufferedOutputStream.close();
-            }
+            closeBufferedStream(bufferedInputStream, bufferedOutputStream);
+        }
+    }
+
+    private void closeBufferedStream(BufferedInputStream bufferedInputStream, BufferedOutputStream bufferedOutputStream) throws IOException {
+        if (bufferedInputStream != null) {
+            bufferedInputStream.close();
+        }
+        if (bufferedOutputStream != null) {
+            bufferedOutputStream.close();
         }
     }
 
